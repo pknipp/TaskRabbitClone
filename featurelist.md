@@ -31,7 +31,7 @@
 
 <img src="./images/TaskRabbit-DB-Model.png">
 
-## EndPoints:
+## MVP EndPoints:
 
 | Method         | Path              | Purpose              |
 |---             |---                |---                   |
@@ -42,28 +42,10 @@
 | Get            | /users/sign-in    |  User Login Form     |
 | Post           | /users/sign-in    |  Authenticate User   |
 | Get            | /users/:id/update |  Form to Update Account Details |
+| Get            | /users/:id/jobs   |  View a list of past/present jobs |
 | Patch          | /users/:id        |  Update User Account |
 | Delete         | /users/:id        |  Delete User Account |
 | Get            | /jobTypes         |  Show All job Types  |
 | Get            | /jobTypes/:id     |  Show All taskers for job Type |
 | Get            | /jobTypes/:id/:taskerId |  Show details about tasker  |
-
-
-
-
-	/users	no
-R (get)	/users/:id	user details ("account")
-C (post)	/users	create an account
-R (get)	/users/signUp	render a form for creating a new user
-R (get)	/	home page
-R (get)	/users/signIn	render a form for logging in
-C (post)	/users/signIn	authenticate the user
-R (get)	/users/:id/update	"render form for changing
-account details"
-U (putch)	/users/:id	mutating User model
-D (delete)	/users/:id	mutating User model (deleting row)
-C (post)	/users/:id	no
-R (get)	/jobTypes	show all types of jobs
-R (get)	/jobTypes/:id	show taskers for this jobType
-R (get)	/jobTypes/:id1/taskers/:id2	show details in re this tasker
-C (post)	/jobs	mutating Job model (add row)
+| Post           | /jobs             |  Create new job (user & tasker)  |

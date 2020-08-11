@@ -8,7 +8,7 @@ const { expiresIn } = require('../../config').jwtConfig;
 const db = require('../../db/models');
 const { User } = db;
 
-const { check }= require('express-validator');
+const { check } = require('express-validator');
 
 const validateAuthFields = [
   check("lastName", "Last name must be between 1 and 80 characters")
@@ -35,7 +35,7 @@ router.post(
   validateAuthFields,
   handleValidationErrors,
   routeHandler(async (req, res, next) => {
-    const { username, email, password } = req.body;
+    const { firstName, lastName, email, phone, password } = req.body;
 
     const user = await User.create({
       firstName,
@@ -52,8 +52,8 @@ router.post(
   })
 );
 
-router.post('/token', (req, res, next) => {
+// router.post('/token', (req, res, next) => {
 
-});
+// });
 
 module.exports = router;

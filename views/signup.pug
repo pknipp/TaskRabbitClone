@@ -1,0 +1,22 @@
+extends layout.pug
+
+include include/auth-input.pug
+
+//- append head
+//-   script(src="/public/js/signup.js" type="module" defer)
+//-   link(rel="stylesheet" href="/public/css/auth.css")
+
+block content
+  form#signup-form
+    //-<svg viewBox="0 0 24 24" class="auth-taskdragon"><g><path></path></g></svg>
+    h1 Sign up for Taskdragon
+    ul#errors-container
+    input(type="hidden" name="_csrf" value=csrf)
+    +authInput("Email", "email")
+      input(type="email" name="email" required)
+    +authInput("Password", "password")
+      input(type="password" name="password" required)
+    +authInput("Confirm Password", "password2")
+      input(type="password" name="password2" required)
+    button(type="submit" disabled) Sign up
+    a.link-to-other-form(href="/users/login") Log in to TaskDragon

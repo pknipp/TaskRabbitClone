@@ -7,6 +7,7 @@ const { check, validationResult } = require("express-validator");
 const csrfProtection = require("csurf")({cookie: true})
 const db = require("../../db/models");
 const { User } = db;
+const { expiresIn } = require("../../config").jwtConfig;
 
 router.post('/', (req, res, next) => {
 
@@ -19,10 +20,11 @@ const loginAuthenticator = [
         .withMessage("Must be a valid email address"),
     check("password")
         .exists()
-        .withMessage("This field can't be blank")
+        .withMessage("Password field can't be blank")
 ]
 
-router.post('/login', csrfProtection, loginAuthenticator,
+// add csrfprotection
+router.post('/login', loginAuthenticator,
     handleValidationErrors, routeHandler( async (req, res, next) => {
         const { email, password } = req.body;
         const user = await User.findOne({
@@ -31,11 +33,12 @@ router.post('/login', csrfProtection, loginAuthenticator,
         if(!user || !user.validatePassword(password)) {
             const error = new Error("Incorrect Email or Password");
             error.status = 401;
-            error.title = unauthorized;
-            next(error);
+            error.title = "unauthorized";
+            throw error;
         }
-        const userToken = await getUserToken(user)
-        
+        const userToken = await getUserToken(user);
+        res.cookie("token", userToken, {maxAge: expiresIn * 1000});
+        res.json({id: user.id, userToken});
 }));
 
 module.exports = router;

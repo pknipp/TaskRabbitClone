@@ -19,9 +19,9 @@ const validateAuthFields = [
     .exists()
     .isLength({ min: 5, max: 80 })
     .isEmail(),
-  check("phone", 'Phone number must be valid')
-    .exists()
-    .isLength(10),
+  // check("phone", 'Phone number must be valid')
+  //   .exists()
+  //   .isLength(10),
   check("password", "Password field must be 6 or more characters")
     .exists()
     .isLength({ min: 6, max: 70 }),

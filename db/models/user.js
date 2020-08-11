@@ -46,7 +46,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     phone: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.BIGINT,
       validate: {
         isInt:{
           msg: 'Phone number must include only digits.'

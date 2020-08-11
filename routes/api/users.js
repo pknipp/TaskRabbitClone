@@ -14,10 +14,9 @@ router.post('/', (req, res, next) => {
 });
 
 const loginAuthenticator = [
-    check("email")
+    check("email", "Must be a valid email address")
         .exists()
-        .isEmail()
-        .withMessage("Must be a valid email address"),
+        .isEmail(),
     check("password")
         .exists()
         .withMessage("Password field can't be blank")

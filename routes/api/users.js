@@ -18,6 +18,9 @@ const validateAuthFields = [
     .exists()
     .isLength({ min: 5, max: 80 })
     .isEmail(),
+  check("phone", 'Phone number must be valid')
+    .exists()
+    .isLength(10),
   check("password", "Password field must be 6 or more characters")
     .exists()
     .isLength({ min: 6, max: 70 }),
@@ -43,7 +46,7 @@ router.post(
     });
 
     const token = await getUserToken(user);
-    res.cookie("token", token, { maxAge: expiresIn * 1000 }); // maxAge in milliseconds
+    res.cookie("token", token, { maxAge: expiresIn * 1000 });
 
     res.json({ id: user.id, token });
   })

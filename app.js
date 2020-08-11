@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
 
-//const apiRouter = require('./routes/api');
-//const pagesRouter= require('./routes/pages');
+const apiRouter = require('./routes/api');
+const pagesRouter = require('./routes/pages');
+
+
 
 app.set("view engine", "pug");
 
@@ -12,8 +14,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(require('cookie-parser')());
 app.use("/public", express.static('public'));
 
-//app.use('/api', apiRouter);
-//app.use('/', pagesRouter);
+app.use('/api', apiRouter);
+app.use('/', pagesRouter);
 
 app.use((req, res, next) => res.render('error-page'));
 

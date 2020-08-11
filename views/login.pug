@@ -1,0 +1,8 @@
+extends layout
+block content
+  form(id="login-form", action="/api/users", method="post")
+    label(for="email") Email:
+    input(type="text" name="email")
+    label(for="password") Password:
+    input(type="password" name="password")
+    button(type="submit")

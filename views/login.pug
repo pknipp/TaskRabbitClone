@@ -2,13 +2,13 @@ extends layout
 
 include include/auth-input.pug
 
-append head
-  script(src="/public/js/login.js" type="module" defer)
-  //- link(rel="stylesheet" href="/public/css/auth.css")
+//- append head
+//-   script(src="/public/js/login.js" type="module" defer)
+//-   link(rel="stylesheet" href="/public/css/auth.css")
 
 block content
   form(id="login-form" action="/api/users" method="post")
-    <svg viewBox="0 0 24 24" class="auth-TaskDragon" ><g><path></path></g></svg>
+    //-<svg viewBox="0 0 24 24" class="auth-TaskDragon" ><g><path></path></g></svg>
     h1 Log in to TaskDragon
     #errors-container
     input(type="hidden" name="_csrf" value=csrf)
@@ -17,4 +17,4 @@ block content
     +authInput("Password", "password")
       input(type="password" name="password" required)
     button(type="submit" disabled) Log in
-    a.link-to-other-form(href="/signup") Sign up for TaskDragon
+    a.link-to-other-form(href="/users/signup") Sign up for TaskDragon

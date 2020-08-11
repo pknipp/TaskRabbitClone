@@ -3,23 +3,26 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class JobType extends Model {
+  class Tasker extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      JobType.hasMany(models.Tasker, {
+      Tasker.belongsTo(models.JobType, {
         foreignKey: "jobTypeId"
       })
     }
   };
-  JobType.init({
-    name: DataTypes.STRING
+  Tasker.init({
+    name: DataTypes.STRING,
+    skill: DataTypes.INTEGER,
+    price: DataTypes.INTEGER,
+    jobTypeId: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'JobType',
+    modelName: 'Tasker',
   });
-  return JobType;
+  return Tasker;
 };

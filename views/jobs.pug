@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h2 Jobs scheduled for #{jobs[0].User.firstName} #{jobs[0].User.lastName}
+  table
+    thead
+      tr
+        th date
+        th taskerId
+        th price (per day)
+        th details
+    tbody
+      each job in jobs
+        tr
+          td= job.jobDate
+          td= job.Tasker.name
+          td= job.Tasker.price
+          td= job.details

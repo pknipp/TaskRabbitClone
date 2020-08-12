@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const csrfProtection = require("csurf")({ cookie: true });
 const db = require('../db/models');
-const { JobType } = db;
+const { User, Job, Tasker, JobType } = db;
 
 router.get('/users/login', csrfProtection, (req, res) => {
   if (req.user) return res.redirect('/home');
@@ -21,8 +21,18 @@ router.get('/home', async (req, res) => {
 
 router.get('/jobtypes/:id(\\d+)', (req, res) => {
   res.render("taskers", { jobTypeId: req.params.id })
-})
+});
 
+router.get('/users/:id(\\d+)', async (req, res) => {
+  const user = await User.findByPk(req.params.id);
+  const jobsPath = `/users/${user.id}/jobs`;
+  res.render("account", {user, jobsPath});
+});
+
+router.get('/users/:id(\\d+)/jobs', async (req, res) => {
+  const jobs = await Job.findAll({where: {userId: req.params.id}, include: [Tasker, User]});
+  res.render("jobs", {jobs});
+});
 
 // router.get('/home', csrfProtection, (req, res) => {
 //   if (!req.user) return res.redirect("/login");

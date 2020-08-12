@@ -13,7 +13,7 @@ router.get('/', routeHandler(async (req, res) => {
 }));
 
 router.get('', routeHandler(async (req, res) => {
-  const jobtypes = await JobType.findOne({
+  const jobtype = await JobType.findOne({
     where: {
       id
     },

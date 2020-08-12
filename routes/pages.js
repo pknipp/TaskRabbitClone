@@ -17,6 +17,10 @@ router.get('/home', async (req, res) => {
   const jobTypes = await JobType.findAll();
   res.render("home", { jobTypes });
 });
+
+router.get('/jobtypes\:id(\\d+)', (req, res) => {
+  res.render("jobtype", { id: req.params.id })
+})
 // router.get('/home', csrfProtection, (req, res) => {
 //   if (!req.user) return res.redirect("/login");
 //   res.render("home", { username: req.user.username, csrf: req.csrfToken() });

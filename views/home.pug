@@ -5,7 +5,6 @@ include include/auth-input.pug
 block append head
   script(src="/public/js/home.js" type="module" defer)
   link(rel="stylesheet" href="/public/css/auth.css")
-  link(rel="icon" href="/public/dragon.svg" type="image/ico")
   mixin img-bg(src, alt)
     img.img-bg(
     src=src,
@@ -14,6 +13,7 @@ block append head
     )&attributes(attributes)
 
 block content
+  img(src= "/public/dragon.svg" alt='taskdragon' style='width:100px; height:100px;')
   h1 Welcome to Task Dragon
     a.link-to-other-form(href="/users/signup") Sign up for TaskDragon
     a.link-to-other-form(href="/users/login") Log in
@@ -24,7 +24,7 @@ block content
         select(name="jobTypeId" required)
           each jobType in jobTypes
             option(value=jobType.id)= jobType.name
-      button(type="submit" ) See available taskers
+      button(type="submit") See available taskers
   figure
   +img-bg(
     "/public/background.svg",

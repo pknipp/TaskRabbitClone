@@ -32,4 +32,11 @@ const getTaskers = async (jobTypeId) => {
 
 getTaskers(jobTypeId);
 
+let sortButton = document.getElementById("sort-button");
 
+sortButton.addEventListener("change", e => {
+    let val = sortButton.value;
+    // const res = await fetch(`/api/jobtypes/${jobTypeId}/${val}`);
+
+    // console.log(value);
+})

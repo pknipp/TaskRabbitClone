@@ -10,8 +10,8 @@ block content
     h1(id="pageTitle")
     #taskersContainer
         div(class="sort")
-            select
-                option(name="default")= "Recommended"
-                option(name="pLow")= "Price (Lowest to Highest)"
-                option(name="pHigh")= "Price (Highest to Lowest)"
-                option(name="skill")= "Most Skilled"
+            select(id="sort-button")
+                option(name="default" value="default")= "Recommended"
+                option(name="pLow" value="pLow")= "Price (Lowest to Highest)"
+                option(name="pHigh" value="pHigh")= "Price (Highest to Lowest)"
+                option(name="skill" value="skill")= "Most Skilled"

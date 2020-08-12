@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       });
       const columnMapping = {
         foreignKey: 'taskerId',
-        through: 'Jobs',
+        through: 'Job',
         otherKey: 'userId',
       };
       Tasker.belongsToMany(models.User, columnMapping);

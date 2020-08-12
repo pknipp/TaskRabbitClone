@@ -66,7 +66,7 @@ const loginAuthenticator = [
 ]
 
 // add csrfprotection
-router.post('/login', loginAuthenticator,
+router.post('/login', loginAuthenticator, csrfProtection,
     handleValidationErrors, routeHandler( async (req, res, next) => {
         const { email, password } = req.body;
         const user = await User.findOne({

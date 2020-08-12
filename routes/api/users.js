@@ -65,8 +65,7 @@ const loginAuthenticator = [
         .withMessage("Password field can't be blank")
 ]
 
-// add csrfprotection
-router.post('/login', loginAuthenticator, csrfProtection,
+router.post('/login', csrfProtection, loginAuthenticator,
     handleValidationErrors, routeHandler( async (req, res, next) => {
         const { email, password } = req.body;
         const user = await User.findOne({

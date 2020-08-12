@@ -18,7 +18,7 @@ block content
     a.link-to-other-form(href="/users/signup") Sign up for TaskDragon
     a.link-to-other-form(href="/users/login") Log in
     form(id="jobtype-form")
-    #errors-container
+      #errors-container
       h2 Choose thy desired task
       +authInput("Task", "jobtype")
         select(name="jobTypeId" required)

@@ -19,7 +19,7 @@ router.get('/home', async (req, res) => {
   res.render("home", { jobTypes });
 });
 
-router.get('/jobtypes\:id(\\d+)', (req, res) => {
+router.get('/jobtypes/:id(\\d+)', (req, res) => {
   res.render("taskers", { jobTypeId: req.params.id })
 })
 

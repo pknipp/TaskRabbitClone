@@ -8,8 +8,14 @@ router.get('/users/login', csrfProtection, (req, res) => {
 
 router.get('/users/signup', csrfProtection, (req, res) => {
   if (req.user) return res.redirect("/home");
+  // From Nick: ^ What is this doing? ^
   res.render("signup", { csrf: req.csrfToken() });
 });
+
+router.get('/jobTypes/:id(\\d+)', (req, res) => {
+  res.render("taskers", {jobTypeId: req.params.id});
+})
+
 
 // router.get('/home', csrfProtection, (req, res) => {
 //   if (!req.user) return res.redirect("/login");

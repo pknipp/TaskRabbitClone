@@ -1,0 +1,10 @@
+extends layout
+
+
+block append head
+    div(id="dataDiv", data-job=jobTypeId)
+    script(src="/public/js/taskers.js" type="module" defer)
+//-   link(rel="stylesheet" href="/public/css/auth.css")
+
+block content
+    div hello world

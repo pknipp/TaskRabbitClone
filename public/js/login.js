@@ -11,7 +11,7 @@ form.addEventListener("submit", async (e) => {
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ email, password, _csrf })
     })
     const data = await res.json();
     if(!res.ok) {

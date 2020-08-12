@@ -6,6 +6,7 @@ const usersRouter = require('./users');
 const { ValidationError } = require("sequelize");
 
 router.use('/users', usersRouter);
+router.use('/jobTypes', jobTypeRouter);
 
 router.use((err, req, res, next) => {
   if (err instanceof ValidationError) {

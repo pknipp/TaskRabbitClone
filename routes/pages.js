@@ -8,6 +8,8 @@ router.get('/users/login', csrfProtection, (req, res) => {
   res.render('login', { csrf: req.csrfToken() });
 });
 
+
+
 router.get('/users/signup', csrfProtection, (req, res) => {
   if (req.user) return res.redirect("/home");
   // From Nick: ^ What is this doing? ^

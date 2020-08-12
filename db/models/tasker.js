@@ -12,7 +12,16 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Tasker.belongsTo(models.JobType, {
         foreignKey: "jobTypeId"
-      })
+      });
+      Tasker.hasMany(models.Job, {
+        foreignKey: "taskerId"
+      });
+      const columnMapping = {
+        foreignKey: 'taskerId',
+        through: 'Jobs',
+        otherKey: 'userId',
+      };
+      Tasker.belongsToMany(models.User, columnMapping);
     }
   };
   Tasker.init({

@@ -4,7 +4,7 @@
 //   const button = document.querySelector(buttonQuery);
 //   const isAnyInputValueEmpty = () => {
 //     for (let input of inputs) {
-//       if (input.value === "") return true;
+//       if (input.value === "" && input.name !== "firstName" && input.name !== "phone") return true;
 //     }
 //     return false;
 //   };

@@ -22,9 +22,14 @@ const getTaskers = async (jobTypeId) => {
 
             // add individulal tasker to taskers container
             taskersContainer.appendChild(taskerContainer);
-        })
 
+        })
+        let pageTitleHeader = document.getElementById("pageTitle");
+        let pageTitle = taskers[0].JobType.name + "s";
+        pageTitleHeader.innerHTML = pageTitle;
     }
 }
 
-getTaskers(jobTypeId)
+getTaskers(jobTypeId);
+
+

@@ -1,0 +1,31 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f9fafb;
+}
+
+#pageTitle{
+    text-align: center;
+}
+
+#taskersContainer {
+    border-radius: 5px;
+    width: 80%;
+    margin: auto;
+}
+
+.tasker {
+    background-color: white;
+    border: 1px solid darkgray;
+    padding: 20px;
+    margin: 20px;
+}
+
+.sort {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px;
+}

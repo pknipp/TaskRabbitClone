@@ -5,6 +5,7 @@ include include/auth-input.pug
 block append head
   script(src="/public/js/home.js" type="module" defer)
   link(rel="stylesheet" href="/public/css/auth.css")
+  link(rel="stylesheet" href="/public/css/home.css")
   mixin img-bg(src, alt)
     img.img-bg(
     src=src,
@@ -13,18 +14,30 @@ block append head
     )&attributes(attributes)
 
 block content
-  img(src= "/public/dragon.svg" alt='taskdragon' style='width:100px; height:100px;')
-  h1 Welcome to Task Dragon
-    a.link-to-other-form(href="/users/signup") Sign up for TaskDragon
-    a.link-to-other-form(href="/users/login") Log in
-    form(id="jobtype-form")
-      #errors-container
-      h2 Choose thy desired task
-      +authInput("Task", "jobtype")
-        select(name="jobTypeId" required)
-          each jobType in jobTypes
-            option(value=jobType.id)= jobType.name
-      button(type="submit") See available taskers
+  .page
+    .page-header
+      .page-header-logo
+        img(src= "/public/logo.svg" alt='taskdragon' style='width:150px; height:20px;')
+      .page-header-lisulo
+        a(href="/users/login")
+          span Log in
+        a(href="/users/signup")
+          button Sign up
+        //- .page-header-lisulo-lo
+        //-   a(href="/users/login")
+        //-     span Log out
+    .jobtypeform
+      form(id="jobtype-form")
+        #errors-container
+        .jobtypeform-header
+          h2 Help when you need it, at thine fingertips
+        .jobtypeform-dropdown
+          +authInput("Task", "jobtype")
+            select(name="jobTypeId" required)
+              each jobType in jobTypes
+                option(value=jobType.id)= jobType.name
+        .jobtypeform-footer
+          button(type="submit") See available taskers
   figure
   +img-bg(
     "/public/background.svg",

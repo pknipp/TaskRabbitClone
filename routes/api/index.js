@@ -3,11 +3,11 @@ const router = express.Router();
 const { environment } = require('../../config');
 
 const usersRouter = require('./users');
-const jobTypeRouter = require('./jobTypes');
+const jobTypesRouter = require('./jobTypes');
 const { ValidationError } = require("sequelize");
 
 router.use('/users', usersRouter);
-router.use('/jobtypes', jobTypeRouter);
+router.use('/jobtypes', jobTypesRouter);
 
 router.use((err, req, res, next) => {
   if (err instanceof ValidationError) {

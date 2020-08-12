@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       const columnMapping = {
         foreignKey: 'userId',
-        through: 'Jobs',
+        through: 'Job',
         otherKey: 'taskerId',
       };
       User.belongsToMany(models.Tasker, columnMapping);

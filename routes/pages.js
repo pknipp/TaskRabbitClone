@@ -1,5 +1,7 @@
 const router = require("express").Router();
 const csrfProtection = require("csurf")({ cookie: true });
+const db = require('../db/models');
+const { JobType } = db;
 
 router.get('/users/login', csrfProtection, (req, res) => {
   if (req.user) return res.redirect('/home');
@@ -11,6 +13,10 @@ router.get('/users/signup', csrfProtection, (req, res) => {
   res.render("signup", { csrf: req.csrfToken() });
 });
 
+router.get('/home', async (req, res) => {
+  const jobTypes = await JobType.findAll();
+  res.render("home", { jobTypes });
+});
 // router.get('/home', csrfProtection, (req, res) => {
 //   if (!req.user) return res.redirect("/login");
 //   res.render("home", { username: req.user.username, csrf: req.csrfToken() });

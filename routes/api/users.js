@@ -82,4 +82,9 @@ router.post('/login', csrfProtection, loginAuthenticator,
         res.json({id: user.id, userToken});
 }));
 
+// PK created the next few lines
+// router.get("/:id(\\d+)", loginAuthenticator, routeHandler(async(req, res) => {
+//   const user = await User.findByPk(req.params.id);
+// }))
+
 module.exports = router;

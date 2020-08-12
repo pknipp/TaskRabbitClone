@@ -1,5 +1,19 @@
-.page-logo {
-  display: grid;
-  grid-template-areas:
-              "a b";
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
+
+.page-header-logo {
+
+}
+
+.page-header-lisu {
+
+
+}
+
+/* .page-header-lisulo-lo {
+  display: none;
+} */

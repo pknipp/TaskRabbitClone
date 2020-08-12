@@ -16,12 +16,16 @@ block append head
 block content
   .page
     .page-header
-      .page-logo-icon
-        img(src= "/public/logo.svg" alt='taskdragon' style='width:100px; height:100px;')
-
-      .lisu
-        a.link-to-other-form(href="/users/signup") Sign up for TaskDragon
-        a.link-to-other-form(href="/users/login") Log in
+      .page-header-logo
+        img(src= "/public/logo.svg" alt='taskdragon' style='width:150px; height:20px;')
+      .page-header-lisulo
+        a(href="/users/login")
+          span Log in
+        a(href="/users/signup")
+          button Sign up
+        //- .page-header-lisulo-lo
+        //-   a(href="/users/login")
+        //-     span Log out
     .jobtypeform
       form(id="jobtype-form")
         #errors-container

@@ -13,6 +13,7 @@ router.get("/users/register", (req, res) => {
 })
 
 router.get('/users/login', csrfProtection, (req, res) => {
+  console.log(req.id);
   if (req.user) return res.redirect('/home');
   res.render('login', { csrf: req.csrfToken() });
 });
@@ -23,10 +24,14 @@ router.get('/users/signup', csrfProtection, (req, res) => {
   res.render("signup", { csrf: req.csrfToken() });
 });
 
-router.get('/home', async (req, res) => {
-  if (req.user) console.log(req.user)
+router.get('/home', csrfProtection, async (req, res) => {
   const jobTypes = await JobType.findAll();
-  res.render("home", { jobTypes });
+  if (req.user) {
+
+    res.render("home", { email: req.user.email, name: req.user.firstName, csrf: req.csrfToken(), jobTypes });
+  } else {
+    res.render("home", { jobTypes })
+  };
 });
 
 router.get('/jobtypes/:id(\\d+)', (req, res) => {

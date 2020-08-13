@@ -11,9 +11,12 @@ const getJobTypes = async () => {
             let jobTypeImg = document.createElement("img");
             jobTypeImg.src = `public/jobtypeimages/${jobType.name}.svg`
             jobTypeContainer.classList.add("jobType");
-            let nameDiv = document.createElement("a");
-            nameDiv.innerHTML = `Hire a ${jobType.name}!`;
-            nameDiv.href =`/jobtypes/${jobType.id}`
+            let nameDiv = document.createElement("div");
+            nameDiv.classList.add("namediv")
+            let nameLink = document.createElement("a");
+            nameLink.innerHTML = `Hire a ${jobType.name}!`;
+            nameLink.href =`/jobtypes/${jobType.id}`
+            nameDiv.appendChild(nameLink);
             jobTypeContainer.appendChild(jobTypeImg)
             jobTypeContainer.appendChild(nameDiv);
             jobTypesContainer.appendChild(jobTypeContainer);

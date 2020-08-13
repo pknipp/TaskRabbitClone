@@ -6,12 +6,12 @@ block append head
   script(src="/public/js/home.js" type="module" defer)
   link(rel="stylesheet" href="/public/css/auth.css")
   link(rel="stylesheet" href="/public/css/home.css")
-  mixin img-bg(src, alt)
-    img.img-bg(
-    src=src,
-    style=`background-image: path('${src}')`,
-    alt=alt
-    )&attributes(attributes)
+  //- mixin img-bg(src, alt)
+  //-   img.img-bg(
+  //-   src=src,
+  //-   style=`background-image: path('${src}')`,
+  //-   alt=alt
+  //-   )&attributes(attributes)
 
 block content
   .page
@@ -25,30 +25,35 @@ block content
           span Log out
         a(href="/users/signup" id="signup")
           button
-            span Create an account
+            span Maketh an account
     .page-banner
       .banner-text
-        span See the latest on our response to the Bubonic Plague
+        span Seeth the latest on our response to the Bubonic Plague
       .sub-text
-        span Learn more
+        span Learneth m're
 
     .main-content
       .main-content-box
-        h2 Help when thou require, at thine fingertips
-        span Get help from thousands of trusted Taskers for everything from weaving to contactless dragon slaying.
+        h2 Help at which hour thee require, at thy fing'rtips
+        span Receiveth help from thousands of trusted task'rs f'r ev'rything from weaving to contactless dragon slaying
         .jobtypeform
           form(id="jobtype-form")
             #errors-container
-            .jobtypeform-dropdown
-              +authInput("", "jobtype")
-                select(name="jobTypeId" required)
-                  each jobType in jobTypes
-                    option(value=jobType.id)= jobType.name
-            .jobtypeform-footer
-              button(type="submit")
-                span Get help today
+            .jobtypeform-innercontainer
+              .jobtypeform-dropdown
+                +authInput("", "jobtype")
+                  select(name="jobTypeId" required)
+                    each jobType in jobTypes
+                      option(value=jobType.id)= jobType.name
+              .jobtypeform-footer
+                button(type="submit")
+                  span Receiveth help today
+    //- .partnersreviews
+    //-   .partnersreviews-reviews
+    //-   .partnersreviews-partners
+
     .page-bottom
-      h2 Popular projects in Northumbria
+      h2 Popular projects in N'rthumbria
       #jobTypesContainer
 
 

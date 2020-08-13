@@ -20,5 +20,5 @@ form.addEventListener("submit", async (e) => {
         errorsContainer.innerHTML = message;
         return;
     }
-    window.location.href = "/"
+    window.location.href = "/home"
 })

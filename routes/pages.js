@@ -24,6 +24,7 @@ router.get('/users/signup', csrfProtection, (req, res) => {
 });
 
 router.get('/home', async (req, res) => {
+  if (req.user) console.log(req.user)
   const jobTypes = await JobType.findAll();
   res.render("home", { jobTypes });
 });

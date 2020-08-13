@@ -14,11 +14,14 @@ const getJobTypes = async () => {
             let nameDiv = document.createElement("div");
             nameDiv.classList.add("namediv")
             let nameLink = document.createElement("a");
+            let subtext = document.createElement("span");
+            subtext.innerHTML = "Receiveth thy bidding done!"
             nameLink.innerHTML = `Hire a ${jobType.name}!`;
             nameLink.href =`/jobtypes/${jobType.id}`
             nameDiv.appendChild(nameLink);
             jobTypeContainer.appendChild(jobTypeImg)
             jobTypeContainer.appendChild(nameDiv);
+            jobTypeContainer.appendChild(subtext);
             jobTypesContainer.appendChild(jobTypeContainer);
 
         })

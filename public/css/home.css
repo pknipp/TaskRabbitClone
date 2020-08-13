@@ -140,7 +140,7 @@ button {
   border: 1px solid darkgray;
   margin: 20px;
   text-align: center;
-  height: 150px;
+  height: 200px;
 }
 
 form {
@@ -150,6 +150,11 @@ form {
 .jobType a {
   text-decoration: none;
   color: #438E29;
+}
+
+.jobType span {
+  color: black;
+  font-size: 10px;
 }
 
 /* .jobType div {

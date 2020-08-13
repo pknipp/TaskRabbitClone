@@ -1,4 +1,6 @@
-
+* {
+    box-sizing: border-box;
+}
 
 #mainDiv {
     position: absolute;
@@ -8,7 +10,10 @@
     top: 30%;
     background-color: white;
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
+    align-items: space-around;
     border-radius: 5px;
     border: 1px solid lightgray;
 
@@ -24,5 +29,21 @@
 }
 
 #logo {
+    margin-top: 5%;
+}
+
+#logInDiv, #signUpDiv {
+    width: 100%;
+    /* display: flex; */
+    /* justify-content: center; */
+}
+
+button {
+    width: 50%;
+    margin: 0% 25%;
+    height: 50%;
+}
+
+#signUpButton {
 
 }

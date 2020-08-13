@@ -33,18 +33,21 @@ block content
         span Learn more
 
     .main-content
-      .jobtypeform
-        form(id="jobtype-form")
-          #errors-container
-          .jobtypeform-header
-            h2 Help when you need it, at thine fingertips
-          .jobtypeform-dropdown
-            +authInput("Task", "jobtype")
-              select(name="jobTypeId" required)
-                each jobType in jobTypes
-                  option(value=jobType.id)= jobType.name
-          .jobtypeform-footer
-            button(type="submit") See available taskers
+      .main-content-box
+        h2 Help when thou require, at thine fingertips
+        span Get help from thousands of trusted Taskers for everything from weaving to contactless dragon slaying.
+        .jobtypeform
+          form(id="jobtype-form")
+            #errors-container
+            .jobtypeform-dropdown
+              +authInput("", "jobtype")
+                select(name="jobTypeId" required)
+                  each jobType in jobTypes
+                    option(value=jobType.id)= jobType.name
+            .jobtypeform-footer
+              button(type="submit")
+                span Get help today
+    #jobTypesContainer
 
   //- figure
   //- +img-bg(

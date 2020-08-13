@@ -44,9 +44,27 @@
   margin-left: auto;
   margin-right: auto;
   height: 495px;
-  width: 75%;
+  width: 100%;
   background: url(/public/dragonslayer.svg) no-repeat;
+  background-size: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+}
+
+.main-content-box {
+  height: 300px;
+  width: 75%;
+  background-color: white;
+  text-align: center;
+  font-family: proxima_nova_rgregular;
+  font-size: 30px;
+}
+
+.main-content-box span {
+  font-family: proxima_nova_rgregular;
+  font-size: 14px;
 }
 
 .page-banner {
@@ -67,10 +85,42 @@
 .sub-text span {
   font-family: proxima_nova_rgregular;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 15px;
   color: rgb(81, 175, 51);
 
 }
-/* .page-header-lisulo-lo {
-  display: none;
-} */
+
+
+
+select {
+  background-color: white;
+  font-family: proxima_nova_rgregular;
+  font-size: 15px;
+  color: rgb(81, 175, 51);
+  text-align: center;
+}
+
+.jobtypeform-footer button {
+  color: white;
+  background-color:  rgb(81, 175, 51);
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(81, 175, 51);
+  border-image: initial;
+  padding-top: 0.625em;
+  padding-bottom: 0.625em;
+  font-size: 1rem;
+}
+
+#jobTypesContainer {
+  border-radius: 5px;
+  width: 80%;
+  margin: auto;
+}
+
+.jobType {
+  background-color: white;
+  border: 1px solid darkgray;
+  padding: 20px;
+  margin: 20px;
+}

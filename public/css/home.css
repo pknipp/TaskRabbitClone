@@ -129,6 +129,17 @@ select {
   margin: 20px;
   text-align: center;
 }
+
+.jobType a {
+  text-decoration: none;
+  color: #438E29;
+  padding: 0px 16px;
+}
+
+.jobType img {
+  width:50px;
+  height:50px;
+}
 .page-bottom {
   margin-top: 20px;
   font-family: proxima_nova_rgregular;

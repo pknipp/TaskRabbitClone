@@ -30,7 +30,7 @@ router.get('/users/:id(\\d+)', async (req, res) => {
 });
 
 router.get('/users/:id(\\d+)/jobs', async (req, res) => {
-  const jobs = await Job.findAll({where: {userId: req.params.id}, include: [Tasker, User]});
+  const jobs = await Job.findAll({where: {userId: req.params.id}, include: [User, Tasker]});
   res.render("jobs", {jobs});
 });
 

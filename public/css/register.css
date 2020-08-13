@@ -20,6 +20,10 @@ body {
     overflow: hidden;
 }
 
+#logInForm {
+    width: 100%;
+}
+
 #mainDiv {
     position: absolute;
     width: 50%;
@@ -48,10 +52,17 @@ body {
 
 #logo {
     margin-top: 5%;
-    height: 5%
+    height: 5%;
+    width: 100%;
+    display: flex;
 }
 
-#logInDiv, #signUpDiv {
+#logo > img {
+    margin: auto;
+    justify-content: center;
+}
+
+#logInDiv, #signUpDiv, #emailDiv, #passwordDiv {
     width: 100%;
 }
 

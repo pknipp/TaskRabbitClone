@@ -3,12 +3,6 @@ extends layout
 block append head
     //- script(src="/public/js/taskers.js" type="module" defer)
     link(rel="stylesheet" href="/public/css/register.css")
-    mixin img-bg(src, alt)
-        img.img-bg(
-        src=src,
-        style=`background-image: path('${src}')`,
-        alt=alt
-        )&attributes(attributes)
 
 block content
 
@@ -17,9 +11,11 @@ block content
         div(id="logo")
             img(src= "/public/logo.svg" alt='taskdragon' style='width:300px; height:40px;')
         div(id="signUpDiv")
-            button(id="signUpButton" class="formInput") Sign Up
-        div(id="logInDiv")
-            button(id="logInButton" class="formInput") Log In
+            a(href="/users/signup")
+                button(id="signUpButton" class="formInput") Sign Up
 
+        div(id="logInDiv")
+            a(href="/users/login")
+                button(id="logInButton" class="formInput") Log In
 
 //- /public/background.svg

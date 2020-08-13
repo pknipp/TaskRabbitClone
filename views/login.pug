@@ -1,21 +1,46 @@
+//- extends layout
+
+//- include include/auth-input.pug
+
+//- block append head
+//-   script(src="/public/js/login.js" type="module" defer)
+//-   link(rel="stylesheet" href="/public/css/auth.css")
+
+//- block content
+//-   form(id="login-form")
+//-     //-<svg viewBox="0 0 24 24" class="auth-TaskDragon" ><g><path></path></g></svg>
+//-     h1 Log in to TaskDragon
+//-     #errors-container
+//-     input(type="hidden" name="_csrf" value=csrf)
+//-     +authInput("Email address", "email")
+//-       input(type="email" name="email" required)
+//-     +authInput("Password", "password")
+//-       input(type="password" name="password" required)
+//-     button(type="submit" ) Log in
+//-     a.link-to-other-form(href="/users/signup") Sign up for TaskDragon
+//-     a.link-to-other-form(href="/home") Home
+
+
 extends layout
 
 include include/auth-input.pug
 
 block append head
-  script(src="/public/js/login.js" type="module" defer)
-  link(rel="stylesheet" href="/public/css/auth.css")
+    //- script(src="/public/js/taskers.js" type="module" defer)
+    link(rel="stylesheet" href="/public/css/register.css")
+    script(src="/public/js/login.js" type="module" defer)
 
 block content
-  form(id="login-form")
-    //-<svg viewBox="0 0 24 24" class="auth-TaskDragon" ><g><path></path></g></svg>
-    h1 Log in to TaskDragon
-    #errors-container
-    input(type="hidden" name="_csrf" value=csrf)
-    +authInput("Email address", "email")
-      input(type="email" name="email" required)
-    +authInput("Password", "password")
-      input(type="password" name="password" required)
-    button(type="submit" ) Log in
-    a.link-to-other-form(href="/users/signup") Sign up for TaskDragon
-    a.link-to-other-form(href="/home") Home
+
+    image(src="/public/background.svg", style="background-image: path('/public/background.svg')" class="background")
+    div(id="mainDiv")
+      div(id="logo")
+        img(src= "/public/logo.svg" alt='taskdragon' style='width:300px; height:40px;')
+      form(id="login-form")
+        input(type="hidden" name="_csrf" value=csrf)
+        div(id="emailDiv")
+          +authInput("Email address", "email")
+            input(type="email" name="email" required)
+        div(id="passwordDiv")
+          +authInput("Password", "password")
+            input(type="password" name="password" required)

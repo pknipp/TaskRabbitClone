@@ -17,29 +17,37 @@ block content
   .page
     .page-header
       .page-header-logo
-        img(src= "/public/logo.svg" alt='taskdragon' style='width:150px; height:20px;')
+        img(src= "/public/logo.svg" alt='taskdragon' style='width:150px; height:40px;')
       .page-header-lisulo
-        a(href="/users/login")
-          span Log in
-        a(href="/users/signup")
-          button Sign up
-        //- .page-header-lisulo-lo
-        //-   a(href="/users/login")
-        //-     span Log out
-    .jobtypeform
-      form(id="jobtype-form")
-        #errors-container
-        .jobtypeform-header
-          h2 Help when you need it, at thine fingertips
-        .jobtypeform-dropdown
-          +authInput("Task", "jobtype")
-            select(name="jobTypeId" required)
-              each jobType in jobTypes
-                option(value=jobType.id)= jobType.name
-        .jobtypeform-footer
-          button(type="submit") See available taskers
-  figure
-  +img-bg(
-    "/public/background.svg",
-    "image"
-  )
+        a(href="/users/login" id="loginbox")
+          span(id="login") Log in
+        a(href="/users/logout" id="logoutbox")
+          span Log out
+        a(href="/users/signup" id="signup")
+          button
+            span Create an account
+    .page-banner
+      .banner-text
+        span See the latest on our response to the Bubonic Plague
+      .sub-text
+        span Learn more
+
+    .main-content
+      .jobtypeform
+        form(id="jobtype-form")
+          #errors-container
+          .jobtypeform-header
+            h2 Help when you need it, at thine fingertips
+          .jobtypeform-dropdown
+            +authInput("Task", "jobtype")
+              select(name="jobTypeId" required)
+                each jobType in jobTypes
+                  option(value=jobType.id)= jobType.name
+          .jobtypeform-footer
+            button(type="submit") See available taskers
+
+  //- figure
+  //- +img-bg(
+  //-   "/public/background.svg",
+  //-   "image"
+  //- )

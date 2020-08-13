@@ -1,18 +1,16 @@
 extends layout
 
+block append head
+  div(id="dataDiv", data-job=userId)
+  script(src="/public/js/jobs.js" type="module" defer)
+
 block content
-  h2 Jobs scheduled for #{jobs[0].User.firstName} #{jobs[0].User.lastName}
+  h1(id="pageTitle")
   table
-    thead
+    thead#thead
       tr
-        th date
-        th taskerId
-        th price (per day)
-        th details
-    tbody
-      each job in jobs
-        tr
-          td= job.jobDate
-          td= job.Tasker.name
-          td= job.Tasker.price
-          td= job.details
+        th#date Date
+        th#TaskerName Tasker
+        th#TaskerPrice Price (pence per day)
+        th Details
+    tbody#jobsTBody

@@ -19,7 +19,7 @@ module.exports = {
         references: {model: "Taskers"}
       },
       jobDate: {
-        type: Sequelize.DATE
+        type: Sequelize.STRING(20)
       },
       details: {
         type: Sequelize.TEXT

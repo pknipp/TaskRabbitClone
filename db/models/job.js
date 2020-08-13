@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   Job.init({
     userId: DataTypes.INTEGER,
     taskerId: DataTypes.INTEGER,
-    jobDate: DataTypes.DATE,
+    jobDate: DataTypes.STRING,
     details: DataTypes.TEXT
   }, {
     sequelize,

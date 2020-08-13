@@ -1,0 +1,27 @@
+extends layout
+
+block append head
+    div(id="dataDiv", data-job=jobTypeId)
+    script(src="/public/js/jobs.js" type="module" defer)
+
+block content
+  h2 Jobs scheduled for #{jobs[0].User.firstName} #{jobs[0].User.lastName}
+  table
+    thead
+      tr
+        th Date
+        th Tasker
+        th Price (pence per day)
+        th Details
+    tbody
+      each job in jobs
+        tr
+          td= job.jobDate
+          td= job.Tasker.name
+          td= job.Tasker.price
+          td= job.details
+  ul
+    li
+      a(href=accountPath) See account details
+    li
+      a(href='/home') Go home

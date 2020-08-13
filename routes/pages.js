@@ -34,14 +34,22 @@ router.get('/jobtypes/:id(\\d+)', (req, res) => {
 
 router.get('/users/:id(\\d+)', async (req, res) => {
   const user = await User.findByPk(req.params.id);
-  const jobsPath = `/users/${user.id}/jobs`;
-  res.render("account", {user, jobsPath});
+  res.render("account", {user, jobsPath: `/users/${user.id}/jobs`});
 });
 
-router.get('/users/:id(\\d+)/jobs', async (req, res) => {
-  const jobs = await Job.findAll({where: {userId: req.params.id}, include: [User, Tasker]});
-  res.render("jobs", {jobs});
+
+//2nd version of PK's router
+router.get('/jobs/:id(\\d+)', (req, res) => {
+//router.get('/users/:id(\\d+)/jobs', (req, res) => {
+  res.render("jobs", { userId: req.params.id })
 });
+
+// first version of PK's router
+// router.get('/users/:id(\\d+)/jobs', async (req, res) => {
+//   const jobs = await Job.findAll({where: {userId: req.params.id}, include: [User, Tasker]});
+//   const accountPath = `/users/${jobs[0].userId}`
+//   res.render("jobs", {jobs, accountPath});
+// });
 
 // router.get('/home', csrfProtection, (req, res) => {
 //   if (!req.user) return res.redirect("/login");

@@ -24,7 +24,7 @@ const getTaskers = async (jobTypeId, sort) => {
             taskerContainer.appendChild(skillDiv);
             taskerContainer.appendChild(priceDiv);
 
-            // add individulal tasker to taskers container
+            // add individual tasker to taskers container
             taskersContainer.appendChild(taskerContainer);
 
         })

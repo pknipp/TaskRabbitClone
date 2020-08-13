@@ -26,7 +26,6 @@ extends layout
 include include/auth-input.pug
 
 block append head
-    //- script(src="/public/js/taskers.js" type="module" defer)
     link(rel="stylesheet" href="/public/css/register.css")
     script(src="/public/js/login.js" type="module" defer)
 
@@ -39,8 +38,9 @@ block content
       form(id="login-form")
         input(type="hidden" name="_csrf" value=csrf)
         div(id="emailDiv")
-          input(type="email" name="email" class="formInput" required)
+          input(type="email" name="email" class="loginInput input" placeholder="Email Address" required)
         div(id="passwordDiv")
-          input(type="password" name="password" class="formInput" required)
+          input(type="password" name="password" class="loginInput input" placeholder="   Password" required)
+        div(id="errors-container")
         div(id="logInDiv")
-          button(type="submit" class="signUpButton" class="formInput") Log In
+          button(type="submit" class="signUpButton" class="loginInput") Log In

@@ -27,7 +27,7 @@ body {
 #mainDiv {
     position: absolute;
     width: 50%;
-    height: 45%;
+    min-height: 45%;
     left: 25%;
     top: 15%;
     background-color: white;
@@ -39,13 +39,14 @@ body {
     border-radius: 5px;
     border: 1px solid lightgray;
     box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.4);
-
+    max-height: fit-content;
 }
 
 .background {
     background: url(images/bg.jpg) no-repeat center center fixed;
     /* background-size: cover; */
     background-size: 100%, 100%;
+    margin: -10px;
     z-index: -1;
     position: absolute;
 }
@@ -77,7 +78,11 @@ body {
 }
 
 #logInDiv {
-    margin-top: -2.5%;
+    /* margin-top: -5%; */
+}
+
+.input {
+    padding: 2.5%;
 }
 
 .formInput {
@@ -87,6 +92,16 @@ body {
     border-radius: 5px;
     font-size: 18px;
 }
+
+.loginInput {
+    width: 50%;
+    margin: 3% 25%;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+
 
 .signUpButton {
     background-color: #34C419;
@@ -106,6 +121,12 @@ body {
     background-color: rgba(0, 0, 0, 0.11);
     cursor: pointer;
 }
+
+#errors-container {
+    color: red;
+    margin: auto;
+}
+
 
 #emailDiv, #passwordDiv {
     height: 100%;

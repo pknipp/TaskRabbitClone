@@ -35,7 +35,7 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: space-around;
+    align-items: space-between;
     border-radius: 5px;
     border: 1px solid lightgray;
     box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.4);
@@ -55,21 +55,25 @@ body {
     height: 5%;
     width: 100%;
     display: flex;
+    position: relative;
 }
 
 #logo > img {
     margin: auto;
     justify-content: center;
-}
-
-#login-form {
-    background-color: red;
-    width: 100%;
-    height: 100%;
+    z-index: 2;
 }
 
 #logInDiv, #signUpDiv, #emailDiv, #passwordDiv {
     width: 100%;
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
+    flex-grow: 2;
 }
 
 #logInDiv {
@@ -84,21 +88,25 @@ body {
     font-size: 18px;
 }
 
-#signUpButton {
+.signUpButton {
     background-color: #34C419;
     color: white;
 }
 
-#logInButton {
+.logInButton {
     background-color: #FFFFFF;
 }
 
-#signUpButton:hover {
+.signUpButton:hover {
     background-color: #269712;
     cursor: pointer;
 }
 
-#logInButton:hover {
+.logInButton:hover {
     background-color: rgba(0, 0, 0, 0.11);
     cursor: pointer;
+}
+
+#emailDiv, #passwordDiv {
+    height: 100%;
 }

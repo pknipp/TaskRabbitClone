@@ -1,6 +1,6 @@
 
 const dataDiv = document.getElementById("dataDiv");
-const jobTypeId = dataDiv.dataset.job;
+const jobTypeId = dataDiv.dataset.jobType;
 const sortButton = document.getElementById("sort-button");
 
 const getTaskers = async (jobTypeId, sort) => {
@@ -14,12 +14,16 @@ const getTaskers = async (jobTypeId, sort) => {
         taskers.forEach(tasker => {
             let taskerContainer = document.createElement("div");
             taskerContainer.classList.add("tasker");
+
             let nameDiv = document.createElement("div");
             nameDiv.innerHTML = `Name: ${tasker.name}`;
+
             let skillDiv = document.createElement("div")
             skillDiv.innerHTML = `Skill: ${tasker.skill}`;
+
             let priceDiv = document.createElement("div")
             priceDiv.innerHTML = `Price: ${tasker.price}`;
+
             taskerContainer.appendChild(nameDiv);
             taskerContainer.appendChild(skillDiv);
             taskerContainer.appendChild(priceDiv);

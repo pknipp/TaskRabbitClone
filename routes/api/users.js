@@ -65,6 +65,12 @@ const loginAuthenticator = [
         .withMessage("Password field can't be blank")
 ]
 
+// Ed's route
+// router.get('/:id', async (req, res) => {
+//   const user = await User.findByPk(req.params.id);
+//   res.json({user});
+// })
+
 router.post('/login', csrfProtection, loginAuthenticator,
     handleValidationErrors, routeHandler( async (req, res, next) => {
         const { email, password } = req.body;

@@ -16,11 +16,7 @@
     padding: none;
 }
 
-body {
-    overflow: hidden;
-}
-
-#logInForm {
+#logInForm, #signup-form {
     width: 100%;
 }
 
@@ -101,6 +97,14 @@ body {
     font-size: 16px;
 }
 
+.signUpInput {
+    width: 50%;
+    margin: 3% 25%;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
 
 
 .signUpButton {
@@ -126,6 +130,13 @@ body {
     color: red;
     margin: auto;
 }
+
+ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
 
 
 #emailDiv, #passwordDiv {

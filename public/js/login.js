@@ -18,7 +18,7 @@ form.addEventListener("submit", async (e) => {
         const { message } = data;
         const errorsContainer = document.getElementById("errors-container");
         errorsContainer.innerHTML = message;
-        errorsContainer.style.display = block;
+        errorsContainer.style.display = "block";
         return;
     }
     window.location.href = "/home"

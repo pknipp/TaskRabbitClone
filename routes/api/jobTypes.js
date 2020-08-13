@@ -21,10 +21,10 @@ router.get("/:id(\\d+)/:sort(skill|pLow|pHigh|default)", routeHandler( async(req
         [['price', 'DESC']],
         [['skill', 'DESC']]
     ];
-    let option = (sort === "default") ? options[0] :
-                 (sort === "pLow") ? options[1] :
-                 (sort === "pHigh") ? options[2] :
-                                    options[3]
+    let option = (sort === "default")   ? options[0] :
+                 (sort === "pLow")      ? options[1] :
+                 (sort === "pHigh")     ? options[2] :
+                                          options[3]
 
     const taskers = await Tasker.findAll({
         where: {jobTypeId: req.params.id},

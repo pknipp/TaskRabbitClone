@@ -5,9 +5,9 @@
 #mainDiv {
     position: absolute;
     width: 50%;
-    height: 40%;
+    height: 45%;
     left: 25%;
-    top: 30%;
+    top: 15%;
     background-color: white;
     display: flex;
     flex-direction: row;
@@ -31,20 +31,28 @@
 
 #logo {
     margin-top: 5%;
+    height: 5%
 }
 
 #logInDiv, #signUpDiv {
     width: 100%;
 }
 
+#logInDiv {
+    margin-top: -2.5%;
+}
+
 button {
     width: 50%;
     margin: 0% 25%;
-    height: 60%;
+    height: 50%;
+    border-radius: 5px;
+    font-size: 18px;
 }
 
 #signUpButton {
     background-color: #34C419;
+    color: white;
 }
 
 #logInButton {

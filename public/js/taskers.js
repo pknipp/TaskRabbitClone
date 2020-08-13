@@ -1,12 +1,16 @@
 
 const dataDiv = document.getElementById("dataDiv");
 const jobTypeId = dataDiv.dataset.job;
-const getTaskers = async (jobTypeId) => {
-    const res = await fetch(`/api/jobtypes/${jobTypeId}`);
+const sortButton = document.getElementById("sort-button");
+
+const getTaskers = async (jobTypeId, sort) => {
+    let sortManager = sort ? `/${sort}` : "";
+    const res = await fetch(`/api/jobtypes/${jobTypeId}${sortManager}` );
     let taskers = await res.json();
 
     let taskersContainer = document.getElementById("taskersContainer");
     if(res.ok) {
+        taskersContainer.innerHTML = "";
         taskers.forEach(tasker => {
             let taskerContainer = document.createElement("div");
             taskerContainer.classList.add("tasker");
@@ -32,11 +36,9 @@ const getTaskers = async (jobTypeId) => {
 
 getTaskers(jobTypeId);
 
-let sortButton = document.getElementById("sort-button");
-
-sortButton.addEventListener("change", e => {
+sortButton.addEventListener("change", async e => {
     let val = sortButton.value;
-    // const res = await fetch(`/api/jobtypes/${jobTypeId}/${val}`);
+    getTaskers(jobTypeId, val)
 
-    // console.log(value);
+
 })

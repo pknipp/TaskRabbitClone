@@ -25,7 +25,9 @@ body {
 }
 
 .sort {
+    width: 80%;
+    margin: auto;
     display: flex;
     justify-content: flex-end;
-    margin: 20px;
+    padding-right: 20px;
 }

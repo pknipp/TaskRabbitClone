@@ -1,0 +1,19 @@
+
+#background {
+    background: url("../../images/login-background.jpg");
+    background-size: cover;
+}
+
+#mainDiv {
+    width: 50%;
+    height: 200px;
+    margin: auto;
+    background-color: aqua;
+    
+}
+
+img {
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+}

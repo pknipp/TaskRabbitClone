@@ -1,7 +1,16 @@
 const router = require("express").Router();
 const csrfProtection = require("csurf")({ cookie: true });
 const db = require('../db/models');
+const { routeHandler } = require("./utils");
 const { User, Job, Tasker, JobType } = db;
+
+router.get("/login", (req, res) => {
+  res.redirect("/users/login")
+})
+
+router.get("/users/register", (req, res) => {
+  res.render("register")
+})
 
 router.get('/users/login', csrfProtection, (req, res) => {
   if (req.user) return res.redirect('/home');

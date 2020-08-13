@@ -1,0 +1,18 @@
+extends layout
+
+block append head
+    //- script(src="/public/js/taskers.js" type="module" defer)
+    link(rel="stylesheet" href="/public/css/register.css")
+    mixin img-bg(src, alt)
+        img.img-bg(
+        src=src,
+        style=`background-image: path('${src}')`,
+        alt=alt
+        )&attributes(attributes)
+
+block content
+    +img-bg("/public/background.svg", "image")
+    div(id="mainDiv") hello world
+
+
+//- /public/background.svg

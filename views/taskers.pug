@@ -8,10 +8,10 @@ block append head
 
 block content
     h1(id="pageTitle")
+    div(class="sort")
+        select(id="sort-button")
+            option(name="default" value="default")= "Recommended"
+            option(name="pLow" value="pLow")= "Price (Lowest to Highest)"
+            option(name="pHigh" value="pHigh")= "Price (Highest to Lowest)"
+            option(name="skill" value="skill")= "Most Skilled"
     #taskersContainer
-        div(class="sort")
-            select(id="sort-button")
-                option(name="default" value="default")= "Recommended"
-                option(name="pLow" value="pLow")= "Price (Lowest to Highest)"
-                option(name="pHigh" value="pHigh")= "Price (Highest to Lowest)"
-                option(name="skill" value="skill")= "Most Skilled"

@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  h2 Account details page for #{user.firstName} #{user.lastName}
+  h2 Email address: #{user.email}
+  h2 Phone number: #{user.phone}
+  a(href="/users/#{user.id}/jobs") see jobs

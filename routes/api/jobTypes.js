@@ -20,12 +20,24 @@ router.get("/:id(\\d+)/", routeHandler( async(req, res) => {
 
 }))
 
-router.get("/:id(\\d+)/:sort", routeHandler( async(req, res) => {
+router.get("/:id(\\d+)/:sort(skill|pLow|pHigh|default)", routeHandler( async(req, res) => {
     const sort = req.params.sort;
-    console.log(sort);
+    let options = [
+        ['id'],
+        ['price'],
+        [['price', 'DESC']],
+        [['skill', 'DESC']]
+    ];
+    let option = (sort === "default") ? options[0] :
+                 (sort === "pLow") ? options[1] :
+                 (sort === "pHigh") ? options[2] :
+                                    options[3]
+
     const taskers = await Tasker.findAll({
         where: {jobTypeId: req.params.id},
+        order: option,
         include: { model: JobType }
+
     })
     const taskersData = taskers.map(tasker => tasker.dataValues);
     res.json(taskersData);

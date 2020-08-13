@@ -3,6 +3,13 @@ const router = express.Router();
 const { routeHandler, handleValidationErrors } = require('../utils');
 const { Tasker, JobType } = require("../../db/models");
 
+
+router.get('/', routeHandler( async(req, res) => {
+  const jobTypes = await JobType.findAll();
+  const jobTypesData = jobTypes.map(jobType => jobType.dataValues);
+  res.json(jobTypesData);
+}))
+
 router.get("/:id(\\d+)/", routeHandler( async(req, res) => {
     const taskers = await Tasker.findAll({
         where: {jobTypeId: req.params.id},

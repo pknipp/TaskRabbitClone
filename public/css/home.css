@@ -114,8 +114,12 @@ select {
 
 #jobTypesContainer {
   border-radius: 5px;
+  font-family: proxima_nova_rgregular;
   width: 80%;
   margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
 }
 
 .jobType {
@@ -123,4 +127,9 @@ select {
   border: 1px solid darkgray;
   padding: 20px;
   margin: 20px;
+  text-align: center;
+}
+.page-bottom {
+  margin-top: 20px;
+  font-family: proxima_nova_rgregular;
 }

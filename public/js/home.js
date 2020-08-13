@@ -10,9 +10,8 @@ const getJobTypes = async () => {
             let jobTypeContainer = document.createElement("div");
             jobTypeContainer.classList.add("jobType");
             let nameDiv = document.createElement("div");
-            nameDiv.innerHTML = `Name: ${jobType.name}`;
+            nameDiv.innerHTML = `Hire a ${jobType.name}!`;
             jobTypeContainer.appendChild(nameDiv);
-            // add individulal tasker to taskers container
             jobTypesContainer.appendChild(jobTypeContainer);
 
         })

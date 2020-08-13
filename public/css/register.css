@@ -16,6 +16,7 @@
     align-items: space-around;
     border-radius: 5px;
     border: 1px solid lightgray;
+    box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.4);
 
 }
 
@@ -34,16 +35,18 @@
 
 #logInDiv, #signUpDiv {
     width: 100%;
-    /* display: flex; */
-    /* justify-content: center; */
 }
 
 button {
     width: 50%;
     margin: 0% 25%;
-    height: 50%;
+    height: 60%;
 }
 
 #signUpButton {
+    background-color: #34C419;
+}
 
+#logInButton {
+    background-color: #FFFFFF;
 }

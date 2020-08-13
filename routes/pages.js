@@ -8,6 +8,10 @@ router.get("/login", (req, res) => {
   res.redirect("/users/login")
 })
 
+router.get("/users/logout", (req, res) => {
+  res.redirect("/home")
+})
+
 router.get("/users/register", (req, res) => {
   res.render("register")
 })
@@ -28,7 +32,7 @@ router.get('/home', csrfProtection, async (req, res) => {
   const jobTypes = await JobType.findAll();
   if (req.user) {
 
-    res.render("home", { email: req.user.email, name: req.user.firstName, csrf: req.csrfToken(), jobTypes });
+    res.render("home", { userId: req.user.id, email: req.user.email, name: req.user.firstName, csrf: req.csrfToken(), jobTypes });
   } else {
     res.render("home", { jobTypes })
   };
@@ -49,6 +53,7 @@ router.get('/jobs/:id(\\d+)', (req, res) => {
 //router.get('/users/:id(\\d+)/jobs', (req, res) => {
   res.render("jobs", { userId: req.params.id })
 });
+
 
 // first version of PK's router
 // router.get('/users/:id(\\d+)/jobs', async (req, res) => {

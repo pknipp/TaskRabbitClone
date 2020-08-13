@@ -1,3 +1,17 @@
+const dataDiv = document.getElementById("dataDiv");
+const userId = dataDiv.dataset.user;
+const name = dataDiv.dataset.name;
+
+if (userId !== undefined) {
+  let namespan = document.createElement("span")
+  namespan.innerHTML = `Hi ${name}!`
+  document.getElementById("account").prepend(namespan)
+  document.getElementById("accountactions").innerHTML = "Manage account"
+  document.getElementById("register").href = `/users/${userId}`
+} else {
+  document.getElementById("logoutbox").classList.add("hidden");
+}
+
 
 
 const getJobTypes = async () => {
@@ -54,3 +68,10 @@ form.addEventListener("submit", async (e) => {
 
     const jobTypes = await JobType.findAll();
 });
+
+document.getElementById("logoutbox").addEventListener('click', async() => {
+  const res = await fetch('/api/users/session', {
+    method: "DELETE",
+  });
+
+})

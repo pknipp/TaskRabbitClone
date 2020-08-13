@@ -3,6 +3,7 @@ extends layout
 include include/auth-input.pug
 
 block append head
+  div(id="dataDiv", data-user=userId, data-name=name, data-email=email)
   script(src="/public/js/home.js" type="module" defer)
   link(rel="stylesheet" href="/public/css/auth.css")
   link(rel="stylesheet" href="/public/css/home.css")
@@ -15,17 +16,15 @@ block append head
 
 block content
   .page
-    .page-header
+    div(class="page-header" id="header")
       .page-header-logo
         img(src= "/public/logo.svg" alt='taskdragon' style='width:150px; height:40px;')
-      .page-header-lisulo
-        a(href="/users/login" id="loginbox")
-          span(id="login") Log in
+      div(class="page-header-lisulo" id="account")
         a(href="/users/logout" id="logoutbox")
           span Log out
-        a(href="/users/signup" id="signup")
+        a(href="/users/register" id="register")
           button
-            span Maketh an account
+            span(id="accountactions") Log in
     .page-banner
       .banner-text
         span Seeth the latest on our response to the Bubonic Plague

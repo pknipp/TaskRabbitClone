@@ -11,8 +11,11 @@ block append head
         )&attributes(attributes)
 
 block content
-    +img-bg("/public/background.svg", "image")
-    div(id="mainDiv") hello world
+
+    image(src="/public/background.svg", style="background-image: path('/public/background.svg')" class="background")
+    div(id="mainDiv")
+        div(id="logo")
+            img(src= "/public/logo.svg" alt='taskdragon' style='width:300px; height:40px;')
 
 
 //- /public/background.svg

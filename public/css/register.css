@@ -1,19 +1,28 @@
 
-#background {
-    background: url("../../images/login-background.jpg");
-    background-size: cover;
-}
 
 #mainDiv {
+    position: absolute;
     width: 50%;
-    height: 200px;
-    margin: auto;
-    background-color: aqua;
-    
+    height: 40%;
+    left: 25%;
+    top: 30%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+
 }
 
-img {
-    width: 100%;
+.background {
+    background: url(images/bg.jpg) no-repeat center center fixed;
+    /* background-size: cover; */
+    width: 100vw;
+    height: 100vh;
     z-index: -1;
     position: absolute;
+}
+
+#logo {
+
 }

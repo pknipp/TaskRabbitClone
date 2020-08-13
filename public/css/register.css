@@ -1,19 +1,60 @@
-
-#background {
-    background: url("../../images/login-background.jpg");
-    background-size: cover;
+* {
+    box-sizing: border-box;
 }
 
 #mainDiv {
+    position: absolute;
     width: 50%;
-    height: 200px;
-    margin: auto;
-    background-color: aqua;
-    
+    height: 45%;
+    left: 25%;
+    top: 15%;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-around;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.4);
+
 }
 
-img {
+.background {
+    background: url(images/bg.jpg) no-repeat center center fixed;
+    /* background-size: cover; */
     width: 100%;
+    height: 100%;
     z-index: -1;
     position: absolute;
+}
+
+#logo {
+    margin-top: 5%;
+    height: 5%
+}
+
+#logInDiv, #signUpDiv {
+    width: 100%;
+}
+
+#logInDiv {
+    margin-top: -2.5%;
+}
+
+button {
+    width: 50%;
+    margin: 0% 25%;
+    height: 50%;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+#signUpButton {
+    background-color: #34C419;
+    color: white;
+}
+
+#logInButton {
+    background-color: #FFFFFF;
 }

@@ -9,8 +9,13 @@ block content
   table
     thead#thead
       tr
-        th#date Date
-        th#TaskerName Tasker
-        th#TaskerPrice Price (pence per day)
+        th#1 Date
+        th#2 Tasker
+        th#3 Price (pence per day)
         th Details
     tbody#jobsTBody
+  ul
+    li
+      a(href='/users/' + userId) See account details
+    li
+      a(href='/home') Go home

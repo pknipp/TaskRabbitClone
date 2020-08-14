@@ -44,7 +44,7 @@ router.get('/jobtypes/:id(\\d+)', (req, res) => {
 
 router.get('/users/:id(\\d+)', async (req, res) => {
   const user = await User.findByPk(req.params.id);
-  res.render("account", {user, jobsPath: `/users/${user.id}/jobs`});
+  res.render("account", {user, jobsPath: `/jobs/${user.id}`});
 });
 
 

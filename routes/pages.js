@@ -24,11 +24,8 @@ router.get('/users/login', csrfProtection, (req, res) => {
 
 router.get('/users/signup', csrfProtection, (req, res) => {
   if (req.user) return res.redirect("/home");
-  // From Nick: ^ What is this doing? ^
   res.render("signup", { csrf: req.csrfToken() });
 });
-
-
 
 router.get('/home', csrfProtection, async (req, res) => {
   const jobTypes = await JobType.findAll();
@@ -39,13 +36,17 @@ router.get('/home', csrfProtection, async (req, res) => {
   };
 });
 
+router.get('/jobtypes/:id(\\d+)', csrfProtection, (req, res) => {
+  if (req.user) {
+    res.render("taskers", { userId: req.user.id, email: req.user.email, name: req.user.firstName, jobTypeId: req.params.id, csrf: req.csrfToken()});
+  } else {
+    res.render("taskers", { jobTypeId: req.params.id })
+  }
+})
+
 router.get('/', (req, res) => {
   res.redirect('/home');
 })
-
-router.get('/jobtypes/:id(\\d+)', (req, res) => {
-  res.render("taskers", { jobTypeId: req.params.id })
-});
 
 router.get('/users/:id(\\d+)', async (req, res) => {
   const user = await User.findByPk(req.params.id);

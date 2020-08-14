@@ -28,6 +28,8 @@ router.get('/users/signup', csrfProtection, (req, res) => {
   res.render("signup", { csrf: req.csrfToken() });
 });
 
+
+
 router.get('/home', csrfProtection, async (req, res) => {
   const jobTypes = await JobType.findAll();
   if (req.user) {
@@ -36,6 +38,10 @@ router.get('/home', csrfProtection, async (req, res) => {
     res.render("home", { jobTypes })
   };
 });
+
+router.get('/', (req, res) => {
+  res.redirect('/home');
+})
 
 router.get('/jobtypes/:id(\\d+)', (req, res) => {
   res.render("taskers", { jobTypeId: req.params.id })

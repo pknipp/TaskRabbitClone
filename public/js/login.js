@@ -31,6 +31,7 @@ form.addEventListener("submit", async (e) => {
     const password = formData.get("password");
     const _csrf = formData.get("_csrf");
     const body = { email, password, _csrf }
+    console.log(body);
     const res = await fetch('/api/users/token', {
       method: "POST",
       body: JSON.stringify(body),

@@ -2,7 +2,7 @@ extends layout
 
 
 block append head
-    div(id="dataDiv", data-jobtype=jobTypeId data-user=userId, data-name=name)
+    div(id="dataDiv", data-jobtype=jobTypeId data-user=userId, data-name=name, data-csrf=csrf)
     script(src="/public/js/taskers.js" type="module" defer)
     link(rel="stylesheet" href="/public/css/taskers.css")
 

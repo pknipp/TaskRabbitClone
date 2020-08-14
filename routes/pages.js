@@ -37,9 +37,9 @@ router.get('/home', csrfProtection, async (req, res) => {
   };
 });
 
-router.get('/jobtypes/:id(\\d+)', (req, res) => {
+router.get('/jobtypes/:id(\\d+)', csrfProtection, (req, res) => {
   if (req.user) {
-    res.render("taskers", { userId: req.user.id, email: req.user.email, name: req.user.firstName, jobTypeId: req.params.id });
+    res.render("taskers", { userId: req.user.id, email: req.user.email, name: req.user.firstName, jobTypeId: req.params.id, csrf: req.csrfToken()});
   } else {
     res.render("taskers", { jobTypeId: req.params.id })
   }

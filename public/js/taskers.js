@@ -2,7 +2,8 @@ const dataDiv = document.getElementById("dataDiv");
 const jobTypeId = dataDiv.dataset.jobtype;
 const userId = dataDiv.dataset.user;
 const name = dataDiv.dataset.name;
-console.log(jobTypeId, userId, name);
+const _csrf = dataDiv.dataset.csrf;
+console.log(jobTypeId, userId, name, _csrf);
 const sortButton = document.getElementById("sort-button");
 
 if (userId !== undefined) {
@@ -67,9 +68,13 @@ document.getElementById("logoutbox").addEventListener('click', async() => {
 });
 
 function getNewDate() {
-
+    const date = new Date()
+    const year = date.getFullYear().toString();
+    const month = date.getMonth().toString();
+    const day = date.getDate().toString();
+    let fullDate = `${year}-${month}-${day}`
+    return fullDate;
 }
-
 
 taskersContainer.addEventListener("click", async (e) => {
     if(e.target.nodeName === "BUTTON") {
@@ -89,18 +94,21 @@ taskersContainer.addEventListener("click", async (e) => {
 
 
         buttonDiv.innerHTML = "";
-        buttonDiv.appendChild(details);
+        buttonDiv.appendChild(detailInput);
         buttonDiv.appendChild(confirmButton);
         confirmButton.addEventListener("click", async (e) => {
             const details = detailInput.value;
-            const date = getNewDate();
+            const jobDate = getNewDate();
             const res = await fetch("/api/jobs", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ userId, taskerId, details, _csrf })
+                body: JSON.stringify({ userId, taskerId, details, jobDate, _csrf })
             })
+            if(res.ok) {
+                window.location.href = `/jobs/${userId}`;
+            }
         }
     )}
 })

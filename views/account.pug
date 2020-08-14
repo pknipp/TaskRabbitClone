@@ -1,9 +1,13 @@
 extends layout
 
+block append head
+  link(rel="stylesheet" href="/public/css/account.css")
+
 block content
-  h2 Account details for #{user.firstName} #{user.lastName}
-  h2 Email address: #{user.email}
-  h2 Phone number: #{user.phone}
+  h2 Your Account
+  h3 #{user.firstName} #{user.lastName}
+  h3 Email address: #{user.email}
+  h3 Phone number: #{user.phone}
   ul
     li
       a(href=jobsPath) scheduled jobs

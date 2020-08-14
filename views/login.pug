@@ -1,21 +1,26 @@
-extends layout
 
-include include/auth-input.pug
-
-block append head
-  script(src="/public/js/login.js" type="module" defer)
-  link(rel="stylesheet" href="/public/css/auth.css")
-
-block content
-  form(id="login-form")
-    //-<svg viewBox="0 0 24 24" class="auth-TaskDragon" ><g><path></path></g></svg>
-    h1 Log in to TaskDragon
-    #errors-container
-    input(type="hidden" name="_csrf" value=csrf)
-    +authInput("Email address", "email")
-      input(type="email" name="email" required)
-    +authInput("Password", "password")
-      input(type="password" name="password" required)
-    button(type="submit" ) Log in
-    a.link-to-other-form(href="/users/signup") Sign up for TaskDragon
-    a.link-to-other-form(href="/home") Home
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title TaskDragon
+        link(rel="icon" href="/public/dragon.svg" type="image/ico")
+        link(rel="stylesheet" href="/public/css/register.css")
+        script(src="/public/js/login.js" type="module" defer)
+    body(style="overflow:hidden")
+      image(src="/public/background.svg", style="background-image: path('/public/background.svg')" class="background")
+      div(id="mainDiv")
+        div(id="logo")
+          img(src= "/public/logo.svg" alt='taskdragon' style='width:300px; height:40px;')
+        form(id="login-form")
+          input(type="hidden" name="_csrf" value=csrf)
+          div(id="emailDiv")
+            input(type="email" name="email" class="loginInput input" placeholder="Email Address" required)
+          div(id="passwordDiv")
+            input(type="password" name="password" class="loginInput input" placeholder="Password" required)
+          div(id="errors-container")
+          div(id="logInDiv")
+            button(type="submit" class="signUpButton" class="loginInput") Log In
+          div(id="demoDiv")
+            button(id="demo" class="signUpButton" class="loginInput") Log In As Demo User

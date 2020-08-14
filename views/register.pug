@@ -1,25 +1,21 @@
-extends layout
-
-block append head
-    //- script(src="/public/js/taskers.js" type="module" defer)
-    link(rel="stylesheet" href="/public/css/register.css")
-    mixin img-bg(src, alt)
-        img.img-bg(
-        src=src,
-        style=`background-image: path('${src}')`,
-        alt=alt
-        )&attributes(attributes)
-
-block content
-
-    image(src="/public/background.svg", style="background-image: path('/public/background.svg')" class="background")
-    div(id="mainDiv")
-        div(id="logo")
-            img(src= "/public/logo.svg" alt='taskdragon' style='width:300px; height:40px;')
-        div(id="signUpDiv")
-            button(id="signUpButton") Sign Up
-        div(id="logInDiv")
-            button(id="logInButton") Log In
-
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title TaskDragon
+        link(rel="icon" href="/public/dragon.svg" type="image/ico")
+        link(rel="stylesheet" href="/public/css/register.css")
+    body(style="overflow:hidden")
+        image(src="/public/background.svg", style="background-image: path('/public/background.svg')" class="background")
+        div(id="mainDiv")
+            div(id="logo")
+                img(src= "/public/logo.svg" alt='taskdragon' style='width:300px; height:40px;')
+            div(id="signUpDiv")
+                a(href="/users/signup")
+                    button(class="signUpButton" class="formInput") Sign Up
+            div(id="logInDiv")
+                a(href="/users/login")
+                    button(class="logInButton" class="formInput") Log In
 
 //- /public/background.svg

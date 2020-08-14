@@ -1,11 +1,29 @@
+@font-face {
+	font-family: 'proxima_nova_rgregular';
+	src: url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.eot');
+	src: url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.woff') format('woff'),
+		 url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.ttf') format('truetype'),
+		 url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.svg#proxima_nova_rgregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
 * {
     box-sizing: border-box;
+    margin: none;
+    padding: none;
+}
+
+#logInForm, #signup-form {
+    width: 100%;
 }
 
 #mainDiv {
     position: absolute;
     width: 50%;
-    height: 45%;
+    min-height: 45%;
     left: 25%;
     top: 15%;
     background-color: white;
@@ -13,36 +31,57 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: space-around;
+    align-items: space-between;
     border-radius: 5px;
     border: 1px solid lightgray;
     box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.4);
-
+    max-height: fit-content;
 }
 
 .background {
     background: url(images/bg.jpg) no-repeat center center fixed;
     /* background-size: cover; */
-    width: 100%;
-    height: 100%;
+    background-size: 100%, 100%;
+    margin: -10px;
     z-index: -1;
     position: absolute;
 }
 
 #logo {
     margin-top: 5%;
-    height: 5%
+    height: 5%;
+    width: 100%;
+    display: flex;
+    position: relative;
 }
 
-#logInDiv, #signUpDiv {
+#logo > img {
+    margin: auto;
+    justify-content: center;
+    z-index: 2;
+}
+
+#logInDiv, #signUpDiv, #emailDiv, #passwordDiv {
     width: 100%;
 }
 
-#logInDiv {
-    margin-top: -2.5%;
+#login-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
+    flex-grow: 2;
 }
 
-button {
+#logInDiv {
+    /* margin-top: -5%; */
+}
+
+.input {
+    padding: 2.5%;
+}
+
+.formInput {
     width: 50%;
     margin: 0% 25%;
     height: 50%;
@@ -50,11 +89,66 @@ button {
     font-size: 18px;
 }
 
-#signUpButton {
+.loginInput {
+    width: 50%;
+    margin: 3% 25%;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.signUpInput {
+    width: 50%;
+    margin: 3% 25%;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+
+
+.signUpButton {
     background-color: #34C419;
     color: white;
 }
 
-#logInButton {
+.logInButton {
     background-color: #FFFFFF;
+}
+
+.signUpButton:hover {
+    background-color: #269712;
+    cursor: pointer;
+}
+
+.logInButton:hover {
+    background-color: rgba(0, 0, 0, 0.11);
+    cursor: pointer;
+}
+
+#errors-container {
+    color: red;
+    margin: auto;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#emailDiv, #passwordDiv {
+    height: 100%;
+}
+
+#demo {
+    margin-top: -5%;
+    background-color: rgba(0, 119, 255, 0.85);
+}
+
+#demo:hover {
+    background-color: rgba(3, 98, 206, 0.85);
+    cursor: pointer;
 }

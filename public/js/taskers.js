@@ -1,6 +1,7 @@
 
 const dataDiv = document.getElementById("dataDiv");
-const jobTypeId = dataDiv.dataset.jobType;
+const jobTypeId = dataDiv.dataset.jobtype;
+console.log(jobTypeId);
 const sortButton = document.getElementById("sort-button");
 
 const getTaskers = async (jobTypeId, sort) => {

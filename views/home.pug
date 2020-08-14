@@ -3,52 +3,56 @@ extends layout
 include include/auth-input.pug
 
 block append head
+  div(id="dataDiv", data-user=userId, data-name=name, data-email=email)
   script(src="/public/js/home.js" type="module" defer)
   link(rel="stylesheet" href="/public/css/auth.css")
   link(rel="stylesheet" href="/public/css/home.css")
-  mixin img-bg(src, alt)
-    img.img-bg(
-    src=src,
-    style=`background-image: path('${src}')`,
-    alt=alt
-    )&attributes(attributes)
+  //- mixin img-bg(src, alt)
+  //-   img.img-bg(
+  //-   src=src,
+  //-   style=`background-image: path('${src}')`,
+  //-   alt=alt
+  //-   )&attributes(attributes)
 
 block content
   .page
-    .page-header
+    div(class="page-header" id="header")
       .page-header-logo
         img(src= "/public/logo.svg" alt='taskdragon' style='width:150px; height:40px;')
-      .page-header-lisulo
-        a(href="/users/login" id="loginbox")
-          span(id="login") Log in
+      div(class="page-header-lisulo" id="account")
         a(href="/users/logout" id="logoutbox")
           span Log out
-        a(href="/users/signup" id="signup")
+        a(href="/users/register" id="register")
           button
-            span Create an account
+            span(id="accountactions") Log in
     .page-banner
       .banner-text
-        span See the latest on our response to the Bubonic Plague
+        span Seeth the latest on our response to the Bubonic Plague
       .sub-text
-        span Learn more
+        span Learneth m're
 
     .main-content
       .main-content-box
-        h2 Help when thou require, at thine fingertips
-        span Get help from thousands of trusted Taskers for everything from weaving to contactless dragon slaying.
+        h2 Help at which hour thee require, at thy fing'rtips
+        span Receiveth help from thousands of trusted task'rs f'r ev'rything from weaving to contactless dragon slaying
         .jobtypeform
           form(id="jobtype-form")
             #errors-container
-            .jobtypeform-dropdown
-              +authInput("", "jobtype")
-                select(name="jobTypeId" required)
-                  each jobType in jobTypes
-                    option(value=jobType.id)= jobType.name
-            .jobtypeform-footer
-              button(type="submit")
-                span Get help today
+            .jobtypeform-innercontainer
+              .jobtypeform-dropdown
+                +authInput("", "jobtype")
+                  select(name="jobTypeId" required)
+                    each jobType in jobTypes
+                      option(value=jobType.id)= jobType.name
+              .jobtypeform-footer
+                button(type="submit")
+                  span Receiveth help today
+    //- .partnersreviews
+    //-   .partnersreviews-reviews
+    //-   .partnersreviews-partners
+
     .page-bottom
-      h2 Popular projects in Northumbria
+      h2 Popular projects in N'rthumbria
       #jobTypesContainer
 
 

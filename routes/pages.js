@@ -8,11 +8,16 @@ router.get("/login", (req, res) => {
   res.redirect("/users/login")
 })
 
+router.get("/users/logout", (req, res) => {
+  res.redirect("/home")
+})
+
 router.get("/users/register", (req, res) => {
   res.render("register")
 })
 
 router.get('/users/login', csrfProtection, (req, res) => {
+  console.log(req.id);
   if (req.user) return res.redirect('/home');
   res.render('login', { csrf: req.csrfToken() });
 });
@@ -23,9 +28,14 @@ router.get('/users/signup', csrfProtection, (req, res) => {
   res.render("signup", { csrf: req.csrfToken() });
 });
 
-router.get('/home', async (req, res) => {
+router.get('/home', csrfProtection, async (req, res) => {
   const jobTypes = await JobType.findAll();
-  res.render("home", { jobTypes });
+  if (req.user) {
+
+    res.render("home", { userId: req.user.id, email: req.user.email, name: req.user.firstName, csrf: req.csrfToken(), jobTypes });
+  } else {
+    res.render("home", { jobTypes })
+  };
 });
 
 router.get('/jobtypes/:id(\\d+)', (req, res) => {
@@ -43,6 +53,7 @@ router.get('/jobs/:id(\\d+)', (req, res) => {
 //router.get('/users/:id(\\d+)/jobs', (req, res) => {
   res.render("jobs", { userId: req.params.id })
 });
+
 
 // first version of PK's router
 // router.get('/users/:id(\\d+)/jobs', async (req, res) => {

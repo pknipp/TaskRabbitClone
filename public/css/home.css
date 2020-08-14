@@ -61,6 +61,7 @@
 
 .main-content-box {
   height: 300px;
+  border-radius: 5px;
   width: 75%;
   background-color: white;
   text-align: center;
@@ -146,7 +147,7 @@ button {
   border: 1px solid darkgray;
   margin: 20px;
   text-align: center;
-  height: 175px;
+  height: 200px;
 }
 
 form {
@@ -154,6 +155,7 @@ form {
 }
 
 .jobType a {
+  margin-top: 50px;
   text-decoration: none;
   color: #438E29;
 }
@@ -161,6 +163,7 @@ form {
 .jobType span {
   color: black;
   font-size: 10px;
+  padding-bottom: 50px;
 }
 
 /* .jobType div {
@@ -172,6 +175,7 @@ form {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
   width: 100%;
   height: 75px;
   align-self: center;
@@ -180,7 +184,7 @@ form {
   background-color: lightgray;
 }
 .page-bottom {
-  margin-top: 20px;
+  margin-top: 150px;
   font-family: proxima_nova_rgregular;
 }
 
@@ -195,4 +199,9 @@ form {
 
 .hidden {
   display: none;
+}
+
+.page-bottom h2 {
+  margin-left: 160px;
+  font-size: 32px;
 }

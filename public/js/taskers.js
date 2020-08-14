@@ -1,4 +1,3 @@
-
 const dataDiv = document.getElementById("dataDiv");
 const jobTypeId = dataDiv.dataset.jobtype;
 const userId = dataDiv.dataset.user;
@@ -61,15 +60,47 @@ sortButton.addEventListener("change", async e => {
     getTaskers(jobTypeId, val)
 })
 
-taskersContainer.addEventListener("click", async (e) => {
-    if(e.target.nodeName === "BUTTON") {
-        let taskerId = e.target.value;
-        console.log(taskerId);
-    }
-})
-
 document.getElementById("logoutbox").addEventListener('click', async() => {
     const res = await fetch('/api/users/session', {
       method: "DELETE",
     })
 });
+
+function getNewDate() {
+
+}
+
+
+taskersContainer.addEventListener("click", async (e) => {
+    if(e.target.nodeName === "BUTTON") {
+        if(!userId) {
+            window.location.href = "/users/register";
+            alert("You must be logged in to create a new job");
+            return;
+        }
+        let taskerId = e.target.value;
+        console.log(taskerId, userId);
+        const buttonDiv = e.target.parentElement;
+        let detailInput = document.createElement("input");
+        detailInput.setAttribute("type", "textArea");
+        detailInput.setAttribute("placeholder", "Please specify job details");
+        let confirmButton = document.createElement("button");
+        confirmButton.innerHTML = "confirm";
+
+
+        buttonDiv.innerHTML = "";
+        buttonDiv.appendChild(details);
+        buttonDiv.appendChild(confirmButton);
+        confirmButton.addEventListener("click", async (e) => {
+            const details = detailInput.value;
+            const date = getNewDate();
+            const res = await fetch("/api/jobs", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ userId, taskerId, details, _csrf })
+            })
+        }
+    )}
+})

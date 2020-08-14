@@ -1,40 +1,49 @@
+
 const dataDiv = document.getElementById("dataDiv");
-const userId = dataDiv.dataset.job;
+console.log(dataDiv);
+const userId = dataDiv.dataset.userid;
+const sortButton = document.getElementById("sort-button");
 
 const getJobs = async (userId, sort) => {
-  const res = await fetch(`/api/jobs/${userId}/${sort}` );
-  let jobs = await res.json()
-  let jobsContainer = document.getElementById("jobsTBody");
-  if(res.ok) {
-    jobsContainer.innerHTML = "";
-    jobs.forEach(job => {
-      let jobContainer = document.createElement("tr");
-      jobContainer.classList.add("job")
+    const res = await fetch(`/api/jobs/${userId}/${sort}` );
+    let jobs = await res.json();
 
-      let dateTd = document.createElement("td");
-      dateTd.innerHTML = `${job.jobDate}`;
-      jobContainer.appendChild(dateTd)
+    let jobsContainer = document.getElementById("jobsContainer");
+    if(res.ok) {
+        jobsContainer.innerHTML = "";
+        jobs.forEach(job => {
+            let jobContainer = document.createElement("div");
+            jobContainer.classList.add("job");
 
-      let taskerNameTd = document.createElement("td");
-      taskerNameTd.innerHTML = `${job.Tasker.name}`;
-      jobContainer.appendChild(taskerNameTd)
+            let dateDiv = document.createElement("div");
+            dateDiv.innerHTML = `Date scheduled: ${job.jobDate}`;
+            jobContainer.appendChild(dateDiv);
 
-      let taskerPriceTd = document.createElement("td");
-      taskerPriceTd.innerHTML = `${job.Tasker.price}`;
-      jobContainer.appendChild(taskerPriceTd)
+            let taskerDiv = document.createElement("div");
+            taskerDiv.innerHTML = `Tasker: ${job.Tasker.name}`;
+            jobContainer.appendChild(taskerDiv);
 
-      let detailsTd = document.createElement("td");
-      detailsTd.innerHTML = `${job.details}`;
-      jobContainer.appendChild(detailsTd)
+            let priceDiv = document.createElement("div");
+            priceDiv.innerHTML = `Price: ${job.Tasker.price}`;
+            jobContainer.appendChild(priceDiv);
 
-      jobsContainer.appendChild(jobContainer);
-    })
-    document.getElementById("pageTitle").innerHTML = `${(jobs[0].User.firstName) ? jobs[0].User.firstName : ""} ${jobs[0].User.lastName}'s jobs`
-  }
+            let detailsDiv = document.createElement("div");
+            detailsDiv.innerHTML = `Details: ${job.details}`;
+            jobContainer.appendChild(detailsDiv);
+
+            // add individual job to jobs container
+            jobsContainer.appendChild(jobContainer);
+
+        })
+        let pageTitleHeader = document.getElementById("pageTitle");
+        let pageTitle = jobs[0].User.firstName + " " + jobs[0].User.lastName + "'s jobs";
+        pageTitleHeader.innerHTML = pageTitle;
+    }
 }
 
 getJobs(userId, 0);
 
-document.getElementById("thead").addEventListener("click", async e => {
-    getJobs(userId, e.target.id);
+sortButton.addEventListener("change", async e => {
+    let sort = sortButton.value;
+    getJobs(userId, sort)
 })

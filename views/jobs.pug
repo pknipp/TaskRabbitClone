@@ -1,21 +1,16 @@
 extends layout
 
+
 block append head
-  div(id="dataDiv", data-job=userId)
-  script(src="/public/js/jobs.js" type="module" defer)
+    div(id="dataDiv", data-userId=userId)
+    script(src="/public/js/jobs.js" type="module" defer)
+    link(rel="stylesheet" href="/public/css/jobs.css")
 
 block content
-  h1(id="pageTitle")
-  table
-    thead#thead
-      tr
-        th#1 Date
-        th#2 Tasker
-        th#3 Price (pence per day)
-        th Details
-    tbody#jobsTBody
-  ul
-    li
-      a(href='/users/' + userId) See account details
-    li
-      a(href='/home') Go home
+    h1(id="pageTitle")
+    div(class="sort")
+        select(id="sort-button")
+            option(name="date" value="1")= "Date"
+            option(name="tasker" value="2")= "Tasker"
+            option(name="price" value="3")= "Price"
+    #jobsContainer

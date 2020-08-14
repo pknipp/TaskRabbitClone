@@ -16,6 +16,10 @@ body {
   color: #242a30;
 }
 
+span {
+  padding: 0 20px;
+}
+
 #container1 {
   height: 411px;
   width: 100%;

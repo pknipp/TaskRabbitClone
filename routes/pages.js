@@ -31,7 +31,6 @@ router.get('/users/signup', csrfProtection, (req, res) => {
 router.get('/home', csrfProtection, async (req, res) => {
   const jobTypes = await JobType.findAll();
   if (req.user) {
-
     res.render("home", { userId: req.user.id, email: req.user.email, name: req.user.firstName, csrf: req.csrfToken(), jobTypes });
   } else {
     res.render("home", { jobTypes })
@@ -44,14 +43,16 @@ router.get('/jobtypes/:id(\\d+)', (req, res) => {
 
 router.get('/users/:id(\\d+)', async (req, res) => {
   const user = await User.findByPk(req.params.id);
-  res.render("account", {user, jobsPath: `/jobs/${user.id}`});
+//  console.log("Is there a user on the request?", !!req.user);
+  if (req.user) res.render("account", {user, jobsPath: `/jobs/${user.id}`});
+  res.redirect("/login");
 });
 
-
-//2nd version of PK's router
 router.get('/jobs/:id(\\d+)', (req, res) => {
-//router.get('/users/:id(\\d+)/jobs', (req, res) => {
-  res.render("jobs", { userId: req.params.id })
+//  if (req.user && req.user.id === req.params.id)
+  console.log("pages route thinks that userId = req.params.id = ", req.params.id);
+  res.render("jobs", {userId: req.params.id});
+//  res.redirect("/login");
 });
 
 

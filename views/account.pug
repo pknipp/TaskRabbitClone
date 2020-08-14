@@ -5,6 +5,7 @@ block append head
   link(rel="stylesheet" href="/public/css/home.css")
   link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.css")
   link(rel="stylesheet" href="/public/css/account.css")
+  script(src="/public/js/account.js" type="module" defer)
 
 block content
   .page
@@ -21,7 +22,7 @@ block content
       #bottom2
         #left3
           div
-            div Profile
+            a(href='/users') Profile
           div
             div Password
           div
@@ -40,8 +41,11 @@ block content
               div img goes here
             #right5
               span
-                i.fas.fa-user #{(user.firstName) ? user.firstName : ""} #{user.lastName}
+                i.fas.fa-user
+                  span #{(user.firstName) ? user.firstName : ""} #{user.lastName}
               span
-                i.fas.fa-envelope-square #{user.email}
+                i.fas.fa-envelope-square
+                  span #{user.email}
               span
-                i.fas.fa-phone #{(user.phone) ? user.phone : ""}
+                i.fas.fa-phone
+                  span #{(user.phone) ? user.phone : ""}

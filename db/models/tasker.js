@@ -13,6 +13,9 @@ module.exports = (sequelize, DataTypes) => {
       Tasker.belongsTo(models.JobType, {
         foreignKey: "jobTypeId"
       });
+      Tasker.hasMany(models.Job, {
+        foreignKey: "taskerId"
+      });
       const columnMapping = {
         foreignKey: 'taskerId',
         through: 'Job',

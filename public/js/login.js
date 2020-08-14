@@ -30,13 +30,15 @@ form.addEventListener("submit", async (e) => {
     const email = formData.get("email");
     const password = formData.get("password");
     const _csrf = formData.get("_csrf");
-    const res = await fetch("/api/users/login", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ email, password, _csrf })
-    })
+    const body = { email, password, _csrf }
+    const res = await fetch('/api/users/token', {
+      method: "POST",
+      body: JSON.stringify(body),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+
     const data = await res.json();
     if(!res.ok) {
         const { message } = data;

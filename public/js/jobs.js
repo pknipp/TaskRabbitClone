@@ -1,11 +1,8 @@
-//This was copied by PK from taskers.js before modification
-
 const dataDiv = document.getElementById("dataDiv");
 const userId = dataDiv.dataset.job;
 
-const getJobs = async (userId) => {
-//let sortManager = sort ? `/${sort}` : "";
-  const res = await fetch(`/api/jobs/${userId}` );
+const getJobs = async (userId, sort) => {
+  const res = await fetch(`/api/jobs/${userId}/${sort}` );
   let jobs = await res.json()
   let jobsContainer = document.getElementById("jobsTBody");
   if(res.ok) {
@@ -32,18 +29,12 @@ const getJobs = async (userId) => {
 
       jobsContainer.appendChild(jobContainer);
     })
-    let pageTitleHeader = document.getElementById("pageTitle");
-    let pageTitle = `${jobs[0].User.firstName} ${jobs[0].User.lastName}'s jobs`
-    pageTitleHeader.innerHTML = pageTitle;
+    document.getElementById("pageTitle").innerHTML = `${jobs[0].User.firstName} ${jobs[0].User.lastName}'s jobs`
   }
 }
 
-getJobs(userId);
+getJobs(userId, 0);
 
-const headNode = document.getElementById("thead");
-
-headNode.addEventListener("click", async e => {
-    const sortBy = e.target.id;
-// //    let val = sortButton.value;
-//     getJobs(jobId)
+document.getElementById("thead").addEventListener("click", async e => {
+    getJobs(userId, e.target.id);
 })

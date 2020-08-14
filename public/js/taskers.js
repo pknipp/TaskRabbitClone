@@ -29,21 +29,44 @@ const getTaskers = async (jobTypeId, sort) => {
             taskerContainer.classList.add("tasker");
 
             let nameDiv = document.createElement("div");
-            nameDiv.innerHTML = `Name: ${tasker.name}`;
+            nameDiv.innerHTML = `${tasker.name}`;
+            nameDiv.classList.add("nameDiv");
 
             let skillDiv = document.createElement("div")
-            skillDiv.innerHTML = `Skill: ${tasker.skill}`;
+            skillDiv.innerHTML= "Skill:   "
+            let skill = tasker.skill;
+            while(skill > 0) {
+                let star = document.createElement("img")
+                star.setAttribute("src", "/public/star-icon.svg");
+                star.setAttribute("width", "2%")
+                star.style.marginBottom = "-2px";
+                skillDiv.appendChild(star);
+                skill--;
+            }
+            skillDiv.classList.add("skillDiv");
 
             let priceDiv = document.createElement("div")
-            priceDiv.innerHTML = `Price: ${tasker.price}`;
+            priceDiv.innerHTML = `Price/Day: ${tasker.price} Pence`;
+            priceDiv.classList.add("priceDiv")
 
             let buttonDiv = document.createElement("div")
             buttonDiv.innerHTML = `<button class="create-job" value="${tasker.id}">Select & Continue</button>`;
+            buttonDiv.classList.add("buttonDiv")
 
+            let picDiv = document.createElement("div");
+            picDiv.classList.add("picDiv")
+            let pic = document.createElement("img");
+            pic.setAttribute("src", `/public/jobtypeimages/${tasker.JobType.name}.svg`)
+            pic.setAttribute("height", "70%");
+            pic.classList.add("picture")
+            picDiv.appendChild(pic);
+
+            taskerContainer.appendChild(picDiv);
+            taskerContainer.appendChild(priceDiv);
             taskerContainer.appendChild(nameDiv);
             taskerContainer.appendChild(skillDiv);
-            taskerContainer.appendChild(priceDiv);
             taskerContainer.appendChild(buttonDiv);
+
 
             // add individual tasker to taskers container
             taskersContainer.appendChild(taskerContainer);

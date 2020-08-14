@@ -13,7 +13,7 @@
     box-sizing: border-box;
     margin: none;
     padding: none;
-    font-family: "proxima_nova_rgregular, arial, helvetica";
+    font-family: proxima_nova_rgregular;
 }
 
 .page-header {
@@ -91,4 +91,52 @@ body {
     display: flex;
     justify-content: flex-end;
     padding-right: 20px;
+}
+
+#sort-button {
+    width: 20%;
+    font-size: 18px;
+    padding: 5px;
+}
+
+
+.nameDiv {
+    grid-area: nameDiv;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0, auto;
+}
+
+.skillDiv {
+    grid-area: skillDiv;
+    font-size: 20px;
+}
+
+.buttonDiv {
+    grid-area: buttonDiv;
+}
+
+.picDiv {
+    grid-area: picDiv;
+    display: flex;
+    border: 1px solid lightgray;
+    border-radius: 200px;
+    background-color: #f9fafb;
+}
+
+.priceDiv {
+    grid-area: priceDiv;
+}
+.tasker {
+    display: grid;
+    grid-template-rows: 100px 100px 50px;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-areas:
+    "picDiv nameDiv nameDiv priceDiv"
+    "picDiv skillDiv skillDiv skillDiv"
+    "buttonDiv buttonDiv buttonDiv buttonDiv"
+}
+
+.picture {
+    margin: auto;
 }

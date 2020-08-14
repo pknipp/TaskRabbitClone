@@ -1,0 +1,33 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f9fafb;
+}
+
+#pageTitle{
+    text-align: center;
+}
+
+#jobsContainer {
+    border-radius: 5px;
+    width: 80%;
+    margin: auto;
+}
+
+.job {
+    background-color: white;
+    border: 1px solid darkgray;
+    padding: 20px;
+    margin: 20px;
+}
+
+.sort {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}

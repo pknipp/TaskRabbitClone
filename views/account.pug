@@ -1,17 +1,47 @@
 extends layout
 
 block append head
+  link(rel="stylesheet" href="/public/css/auth.css")
+  link(rel="stylesheet" href="/public/css/home.css")
+  link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.css")
   link(rel="stylesheet" href="/public/css/account.css")
 
 block content
-  h2 Your Account
-  h3 #{user.firstName} #{user.lastName}
-  h3 Email address: #{user.email}
-  h3 Phone number: #{user.phone}
-  ul
-    li
-      a(href=jobsPath) scheduled jobs
-    li
-      a(href='/home') home page
-    li
-      a(href='/edit') edit your account details
+  .page
+    div(class="page-header" id="header")
+      .page-header-logo
+        img(src= "/public/logo.svg" alt='taskdragon' style='width:150px; height:40px;')
+      div(class="page-header-lisulo" id="account")
+        a(href="/users/logout" id="logoutbox")
+          span Log out
+  #container1
+    #container2
+      #top2
+        div Your Account
+      #bottom2
+        #left3
+          div
+            div Profile
+          div
+            div Password
+          div
+            div Notifications
+          div
+            a(href=jobsPath) Scheduled Jobs
+          div
+            a(href='/home') Home
+          div
+            div Deactivate
+        #right3
+          #top4
+            div Account
+          #bottom4
+            #left5
+              div img goes here
+            #right5
+              span
+                i.fas.fa-user #{(user.firstName) ? user.firstName : ""} #{user.lastName}
+              span
+                i.fas.fa-envelope-square #{user.email}
+              span
+                i.fas.fa-phone #{(user.phone) ? user.phone : ""}

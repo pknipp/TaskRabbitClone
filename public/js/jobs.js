@@ -29,7 +29,7 @@ const getJobs = async (userId, sort) => {
 
       jobsContainer.appendChild(jobContainer);
     })
-    document.getElementById("pageTitle").innerHTML = `${jobs[0].User.firstName} ${jobs[0].User.lastName}'s jobs`
+    document.getElementById("pageTitle").innerHTML = `${(jobs[0].User.firstName) ? jobs[0].User.firstName : ""} ${jobs[0].User.lastName}'s jobs`
   }
 }
 

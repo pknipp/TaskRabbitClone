@@ -6,7 +6,7 @@ demoUser.addEventListener("click", async e => {
     e.preventDefault();
     const formData = new FormData(form);
     const _csrf = formData.get("_csrf");
-    const res = await fetch("/api/users/login", {
+    const res = await fetch("/api/users/token", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

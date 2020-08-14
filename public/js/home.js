@@ -1,3 +1,17 @@
+const dataDiv = document.getElementById("dataDiv");
+const userId = dataDiv.dataset.user;
+const name = dataDiv.dataset.name;
+
+if (userId !== undefined) {
+  let namespan = document.createElement("span")
+  namespan.innerHTML = `Hi ${name}!`
+  document.getElementById("account").prepend(namespan)
+  document.getElementById("accountactions").innerHTML = "Manage account"
+  document.getElementById("register").href = `/users/${userId}`
+} else {
+  document.getElementById("logoutbox").classList.add("hidden");
+}
+
 
 
 const getJobTypes = async () => {
@@ -11,11 +25,17 @@ const getJobTypes = async () => {
             let jobTypeImg = document.createElement("img");
             jobTypeImg.src = `public/jobtypeimages/${jobType.name}.svg`
             jobTypeContainer.classList.add("jobType");
-            let nameDiv = document.createElement("a");
-            nameDiv.innerHTML = `Hire a ${jobType.name}!`;
-            nameDiv.href =`/jobtypes/${jobType.id}`
+            let nameDiv = document.createElement("div");
+            nameDiv.classList.add("namediv")
+            let nameLink = document.createElement("a");
+            let subtext = document.createElement("span");
+            subtext.innerHTML = "Receiveth thy bidding done!"
+            nameLink.innerHTML = `Hire a ${jobType.name}!`;
+            nameLink.href =`/jobtypes/${jobType.id}`
+            nameDiv.appendChild(nameLink);
             jobTypeContainer.appendChild(jobTypeImg)
             jobTypeContainer.appendChild(nameDiv);
+            jobTypeContainer.appendChild(subtext);
             jobTypesContainer.appendChild(jobTypeContainer);
 
         })
@@ -48,3 +68,10 @@ form.addEventListener("submit", async (e) => {
 
     const jobTypes = await JobType.findAll();
 });
+
+document.getElementById("logoutbox").addEventListener('click', async() => {
+  const res = await fetch('/api/users/session', {
+    method: "DELETE",
+  });
+
+})

@@ -65,13 +65,7 @@ const loginAuthenticator = [
         .withMessage("Password field can't be blank")
 ]
 
-// Ed's route
-// router.get('/:id', async (req, res) => {
-//   const user = await User.findByPk(req.params.id);
-//   res.json({user});
-// })
-
-router.post('/login', csrfProtection, loginAuthenticator,
+router.post("/token", csrfProtection, loginAuthenticator,
     handleValidationErrors, routeHandler( async (req, res, next) => {
         const { email, password } = req.body;
         const user = await User.findOne({
@@ -88,9 +82,21 @@ router.post('/login', csrfProtection, loginAuthenticator,
         res.json({id: user.id, userToken});
 }));
 
-// PK created the next few lines
-// router.get("/:id(\\d+)", loginAuthenticator, routeHandler(async(req, res) => {
-//   const user = await User.findByPk(req.params.id);
-// }))
+router.delete('/session', routeHandler(async(req,res) => {
+  res.clearCookie('token');
+  res.json({ message: 'success' });
+}));
+
+router.get('/token', routeHandler(async (req, res, next) => {
+  if (req.user) {
+    return res.json({
+      id: req.user.id,
+      email: req.user.email
+    });
+  }
+  const err = new Error('Invalid token');
+  err.status = 401;
+  next(err);
+}));
 
 module.exports = router;

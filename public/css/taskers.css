@@ -120,7 +120,7 @@ body {
     grid-area: picDiv;
     display: flex;
     border: 1px solid lightgray;
-    border-radius: 200px;
+    border-radius: 5px;
     background-color: #f9fafb;
 }
 
@@ -129,7 +129,7 @@ body {
 }
 .tasker {
     display: grid;
-    grid-template-rows: 100px 100px 50px;
+    grid-template-rows: 75px 75px 50px;
     grid-template-columns: 25% 25% 25% 25%;
     grid-template-areas:
     "picDiv nameDiv nameDiv priceDiv"

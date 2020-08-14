@@ -38,7 +38,7 @@ const getTaskers = async (jobTypeId, sort) => {
             while(skill > 0) {
                 let star = document.createElement("img")
                 star.setAttribute("src", "/public/star-icon.svg");
-                star.setAttribute("width", "2%")
+                star.setAttribute("width", "5%")
                 star.style.marginBottom = "-2px";
                 skillDiv.appendChild(star);
                 skill--;
@@ -57,7 +57,7 @@ const getTaskers = async (jobTypeId, sort) => {
             picDiv.classList.add("picDiv")
             let pic = document.createElement("img");
             pic.setAttribute("src", `/public/jobtypeimages/${tasker.JobType.name}.svg`)
-            pic.setAttribute("height", "70%");
+            pic.setAttribute("height", "90%");
             pic.classList.add("picture")
             picDiv.appendChild(pic);
 

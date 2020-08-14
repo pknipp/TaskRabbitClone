@@ -42,6 +42,8 @@ router.get('/jobtypes/:id(\\d+)', csrfProtection, (req, res) => {
   } else {
     res.render("taskers", { jobTypeId: req.params.id })
   }
+})
+
 router.get('/', (req, res) => {
   res.redirect('/home');
 })

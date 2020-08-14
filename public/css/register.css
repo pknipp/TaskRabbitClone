@@ -133,12 +133,22 @@
 
 ul {
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-
 
 
 #emailDiv, #passwordDiv {
     height: 100%;
+}
+
+#demo {
+    margin-top: -5%;
+    background-color: rgba(0, 119, 255, 0.85);
+}
+
+#demo:hover {
+    background-color: rgba(3, 98, 206, 0.85);
+    cursor: pointer;
 }

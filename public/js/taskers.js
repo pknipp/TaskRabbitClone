@@ -67,6 +67,12 @@ document.getElementById("logoutbox").addEventListener('click', async() => {
     })
 });
 
+let pageLogo = document.querySelector(".page-header-logo");
+
+pageLogo.addEventListener("click", e => {
+    window.location.href = "/home";
+})
+
 function getNewDate() {
     const date = new Date()
     const year = date.getFullYear().toString();
@@ -90,7 +96,7 @@ taskersContainer.addEventListener("click", async (e) => {
         detailInput.setAttribute("type", "textArea");
         detailInput.setAttribute("placeholder", "Please specify job details");
         let confirmButton = document.createElement("button");
-        confirmButton.innerHTML = "confirm";
+        confirmButton.innerHTML = "Confirm";
 
 
         buttonDiv.innerHTML = "";

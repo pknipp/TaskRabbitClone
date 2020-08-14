@@ -56,6 +56,13 @@
     font-size: 1rem;
 }
 
+.page-header-logo:hover {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
 
 body {
     background-color: #f9fafb;

@@ -4,8 +4,6 @@ const app = express();
 const apiRouter = require('./routes/api');
 const pagesRouter = require('./routes/pages');
 
-
-
 app.set("view engine", "pug");
 
 app.use(require("morgan")('dev'));

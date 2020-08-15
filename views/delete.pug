@@ -1,0 +1,18 @@
+extends layout
+
+block append head
+    link(rel="stylesheet" href="/public/css/register.css")
+    script(src="/public/js/delete.js" type="module" defer)
+
+block content
+
+    image(src="/public/background.svg", style="background-image: path('/public/background.svg')" class="background")
+    div(id="mainDiv" class="mainDivSignup" style="top: 5%;")
+      div(id="logo")
+        img(src= "/public/logo.svg" alt='taskdragon' style='width:300px; height:40px;')
+      form(id="signup-form")
+        input(type="hidden" name="_csrf" value=csrf)
+        ul#errors-container
+        div(id="logInDiv")
+          p(align="center") Are you sure that you want to delete your account?
+          button(type="submit" class="signUpButton" class="signUpInput") We will miss you!

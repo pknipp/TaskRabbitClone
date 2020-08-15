@@ -27,6 +27,16 @@ router.get('/users/signup', csrfProtection, (req, res) => {
   res.render("signup", { csrf: req.csrfToken() });
 });
 
+router.get('/users/edit', csrfProtection, (req, res) => {
+  if (!req.user) return res.redirect("/home");
+  res.render("edit", { csrf: req.csrfToken() });
+});
+
+router.get('/users/delete', csrfProtection, (req, res) => {
+  if (!req.user) return res.redirect("/home");
+  res.render("delete", { csrf: req.csrfToken() });
+});
+
 router.get('/home', csrfProtection, async (req, res) => {
   const jobTypes = await JobType.findAll();
   if (req.user) {
@@ -51,6 +61,7 @@ router.get('/', (req, res) => {
 router.get('/users/:id(\\d+)', async (req, res) => {
   const user = await User.findByPk(req.params.id);
 //  console.log("Is there a user on the request?", !!req.user);
+//  console.log("Does req.user.id === req.params.id?", req.params.id, req.user.id);
   if (req.user) res.render("account", {user, jobsPath: `/jobs/${user.id}`});
   res.redirect("/login");
 });
@@ -61,6 +72,8 @@ router.get('/jobs/:id(\\d+)', (req, res) => {
   res.render("jobs", {userId: req.params.id});
 //  res.redirect("/login");
 });
+
+router.get('/construction', (req, res) => res.render("construction"));
 
 
 // first version of PK's router

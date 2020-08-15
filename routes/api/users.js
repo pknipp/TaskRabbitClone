@@ -3,10 +3,11 @@ const express = require("express");
 const router = express.Router();
 const { routeHandler, handleValidationErrors } = require('../utils');
 const { getUserToken } = require('../utils/auth');
+const jwt = require("jsonwebtoken");
 const bcrypt = require('bcryptjs');
-const { expiresIn } = require('../../config').jwtConfig;
+const {secret, expiresIn } = require('../../config').jwtConfig;
 const db = require('../../db/models');
-const { User } = db;
+const {Job, User } = db;
 const { check, validationResult } = require("express-validator");
 const csrfProtection = require("csurf")({cookie: true})
 
@@ -49,6 +50,47 @@ router.post(
     const token = await getUserToken(user);
     res.cookie("token", token, { maxAge: expiresIn * 1000 });
 
+    res.json({ id: user.id, token });
+  })
+);
+
+router.put(
+  "/edit",
+  csrfProtection,
+  validateAuthFields,
+  handleValidationErrors,
+  routeHandler(async (req, res, next) => {
+    const token = req.cookies.token;
+    const user = await User.findByPk(jwt.verify(token, secret).id);
+    user.firstName = req.body.firstName;
+    user.lastName = req.body.lastName;
+    user.email = req.body.email;
+    user.phone = req.body.phone;
+    user.hashedPassword = bcrypt.hashSync(req.body.password, 10),
+    await user.save();
+    res.cookie("token", req.cookies.token, { maxAge: expiresIn * 1000 });
+    // Is following step really needed?  (PK)
+    res.json({ id: user.id, token });
+  })
+);
+
+router.delete(
+  "/delete",
+  csrfProtection,
+//  validateAuthFields,
+//  handleValidationErrors,
+  routeHandler(async (req, res, next) => {
+    const token = req.cookies.token;
+    const id = jwt.verify(token, secret).id;
+    // user's jobs must be deleted before user may be deleted
+    const jobs = await Job.findAll({where: {userId: id}});
+    for (const job of jobs) {
+      await job.destroy();
+    };
+    const user = await User.findByPk(jwt.verify(token, secret).id);
+    await user.destroy();
+    res.cookie("token", req.cookies.token, { maxAge: expiresIn * 1000 });
+    // Is following step really needed?  (PK)
     res.json({ id: user.id, token });
   })
 );

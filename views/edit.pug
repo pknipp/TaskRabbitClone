@@ -1,0 +1,29 @@
+extends layout
+
+block append head
+    link(rel="stylesheet" href="/public/css/register.css")
+    script(src="/public/js/edit.js" type="module" defer)
+
+block content
+
+    image(src="/public/background.svg", style="background-image: path('/public/background.svg')" class="background")
+    div(id="mainDiv" class="mainDivSignup" style="top: 5%;")
+      div(id="logo")
+        img(src= "/public/logo.svg" alt='taskdragon' style='width:300px; height:40px;')
+      form(id="signup-form")
+        input(type="hidden" name="_csrf" value=csrf)
+        div(id="firstNameDiv")
+          input(type="text" name="firstName" class="signUpInput input" placeholder="First Name")
+        div(id="lastNameDiv")
+          input(type="text" name="lastName" class="signUpInput input" placeholder="Last Name" required)
+        div(id="phoneNumberDiv")
+          input(type="number" name="phone" class="signUpInput input" placeholder="Phone Number" required)
+        div(id="emailAddressDiv")
+          input(type="email" name="email" class="signUpInput input" placeholder="Email Address" required)
+        div(id="password1Div")
+          input(type="password" name="password" class="signUpInput input" placeholder="Password" required)
+        div(id="password2Div")
+          input(type="password" name="password2" class="signUpInput input" placeholder="Confirm Password" required)
+        ul#errors-container
+        div(id="logInDiv")
+          button(type="submit" class="signUpButton" class="signUpInput") Edit account details

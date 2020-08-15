@@ -56,7 +56,7 @@
     position: relative;
 }
 
-#logo > img {
+#logo > a {
     margin: auto;
     justify-content: center;
     z-index: 2;

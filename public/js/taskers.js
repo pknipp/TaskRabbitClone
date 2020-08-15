@@ -72,7 +72,9 @@ const getTaskers = async (jobTypeId, sort) => {
             taskersContainer.appendChild(taskerContainer);
         })
         let pageTitleHeader = document.getElementById("pageTitle");
-        let pageTitle = taskers[0].JobType.name + "s";
+        let pageTitle = (taskers[0].JobType.name === "Mercenary") ? "Mercenaries" :
+                        (taskers[0].JobType.name === "Watchman") ? "Watchmen" :
+                        taskers[0].JobType.name + "s";
         pageTitleHeader.innerHTML = pageTitle;
     }
 }

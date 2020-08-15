@@ -77,17 +77,16 @@ router.put(
 router.delete(
   "/delete",
   csrfProtection,
+// No need for middleware below, because there are no (visible) fields
 //  validateAuthFields,
 //  handleValidationErrors,
   routeHandler(async (req, res, next) => {
     const token = req.cookies.token;
     const id = jwt.verify(token, secret).id;
-    // user's jobs must be deleted before user may be deleted
+    const user = await User.findByPk(id);
+    // user's jobs must be found & deleted before user may be deleted
     const jobs = await Job.findAll({where: {userId: id}});
-    for (const job of jobs) {
-      await job.destroy();
-    };
-    const user = await User.findByPk(jwt.verify(token, secret).id);
+    jobs.forEach(async job => await job.destroy());
     await user.destroy();
     res.cookie("token", req.cookies.token, { maxAge: expiresIn * 1000 });
     // Is following step really needed?  (PK)

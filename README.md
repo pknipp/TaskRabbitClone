@@ -17,6 +17,9 @@ B) MINOR FUNCTIONALITY (SPECIFIC):
 4) (PK) on jobs page, create a three-set toggle which'll show
   the following jobs according to their #jobDate attribute:
   (a) all of them, (b) past, and (c) future
+5) (PK) separate "account" route into front-end & back-end?
+6) (PK) put csrf middleware into a couple of routes, both
+  front and back?
 
 C) MINOR FUNCTIONALITY (GENERAL):
 1) remove any front-end console.logs

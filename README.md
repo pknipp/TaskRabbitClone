@@ -13,7 +13,6 @@ A) MAJOR FUNCTIONALITY:
 
 B) MINOR FUNCTIONALITY (SPECIFIC):
 1) finish taskers page
-2) (PK) pre-fill fields in /users/:id/edit page
 3) (PK) add JobType column to jobs page
 4) (PK) on jobs page, create a three-set toggle which'll show
   the following jobs according to their #jobDate attribute:
@@ -23,6 +22,8 @@ C) MINOR FUNCTIONALITY (GENERAL):
 1) remove any front-end console.logs
 2) ensure that each view properly reflects whether user is logged in
 3) if user is logged in, ensure that each page reflects that fact
+4) ensure adequate authorization (req.user && req.user.id === req.params.id)
+  on each (front-end?) route.  Otherwise, res.redirect elsewhere (login or home?)
 
 D) HOUSEKEEPING:
 1) shift image files "down" one level, as PK described earlier

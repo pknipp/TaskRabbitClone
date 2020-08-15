@@ -29,7 +29,7 @@ router.get('/users/signup', csrfProtection, (req, res) => {
 
 router.get('/users/edit', csrfProtection, (req, res) => {
   if (!req.user) return res.redirect("/home");
-  res.render("edit", { csrf: req.csrfToken() });
+  res.render("edit", { csrf: req.csrfToken(), user: req.user});
 });
 
 router.get('/users/delete', csrfProtection, (req, res) => {
@@ -74,27 +74,5 @@ router.get('/jobs/:id(\\d+)', (req, res) => {
 });
 
 router.get('/construction', (req, res) => res.render("construction"));
-
-
-// first version of PK's router
-// router.get('/users/:id(\\d+)/jobs', async (req, res) => {
-//   const jobs = await Job.findAll({where: {userId: req.params.id}, include: [User, Tasker]});
-//   const accountPath = `/users/${jobs[0].userId}`
-//   res.render("jobs", {jobs, accountPath});
-// });
-
-// router.get('/home', csrfProtection, (req, res) => {
-//   if (!req.user) return res.redirect("/login");
-//   res.render("home", { username: req.user.username, csrf: req.csrfToken() });
-// });
-
-// router.get('/tweets/:id', (req, res) => {
-//   if (!req.user) return res.redirect("/login");
-//   res.render("tweet-show", { username: req.user.username })
-// });
-
-// router.get('*', (req, res) => res.render('error-page')});
-
-//router.get('/users/:id')
 
 module.exports = router;

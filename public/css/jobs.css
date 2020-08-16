@@ -1,6 +1,65 @@
+@font-face {
+	font-family: 'proxima_nova_rgregular';
+	src: url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.eot');
+	src: url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.woff') format('woff'),
+		 url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.ttf') format('truetype'),
+		 url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.svg#proxima_nova_rgregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
 
 * {
     box-sizing: border-box;
+    font-family: proxima_nova_rgregular;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    border-bottom: 1px solid lightgray;
+}
+
+.page-header-lisulo a {
+    text-decoration: none;
+    color: #438E29;
+    padding: 0px 16px;
+}
+
+.page-header-lisulo span {
+    text-decoration: none;
+    color: #438E29;
+    padding: 0px 16px;
+    font-family: proxima_nova_rgregular;
+}
+
+.page-header-lisulo a span {
+    font-family: proxima_nova_rgregular;
+}
+.page-header-lisulo a button span {
+    font-family: proxima_nova_rgregular;
+}
+.page-header-lisulo a button  {
+    color: rgb(81, 175, 51);
+    background-color: white;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(81, 175, 51);
+    border-image: initial;
+    padding-top: 0.625em;
+    padding-bottom: 0.625em;
+    font-size: 1rem;
+}
+
+.page-header-logo:hover {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
 }
 
 body {
@@ -17,17 +76,67 @@ body {
     margin: auto;
 }
 
-.job {
-    background-color: white;
-    border: 1px solid darkgray;
-    padding: 20px;
-    margin: 20px;
-}
-
 .sort {
     width: 80%;
     margin: auto;
     display: flex;
     justify-content: flex-end;
     padding-right: 20px;
+}
+
+#sort-button {
+    width: 20%;
+    font-size: 18px;
+    padding: 5px;
+}
+
+.job {
+    display: grid;
+    grid-template-rows: 70px 70px 30px;
+    grid-template-columns: 30% 25% 45%;
+    grid-template-areas:
+    "picDiv taskerNameDiv dateDiv"
+    "picDiv taskerSkillDiv taskerPriceDiv"
+    "picDiv detailsDiv detailsDiv";
+
+    background-color: white;
+    border: 1px solid darkgray;
+    padding: 20px;
+    margin: 20px;
+}
+
+.picDiv {
+    grid-area: picDiv;
+    display: flex;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    background-color: #f9fafb;
+}
+
+.taskerNameDiv {
+    grid-area: taskerNameDiv;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0, auto;
+}
+
+.taskerSkillDiv {
+    grid-area: taskerSkillDiv;
+    font-size: 20px;
+}
+
+.detailsDiv {
+    grid-area: detailsDiv;
+}
+
+.buttonDiv {
+    grid-area: buttonDiv;
+}
+
+.taskerPriceDiv {
+    grid-area: taskerPriceDiv;
+}
+
+.picture {
+    margin: auto;
 }

@@ -1,7 +1,7 @@
 extends layout
 
 block append head
-  div(id="dataDiv", data-userid=userId)
+  div(id="dataDiv", data-user=user)
   script(src="/public/js/account.js" type="module" defer)
   link(rel="stylesheet" href="/public/css/auth.css")
   link(rel="stylesheet" href="/public/css/home.css")
@@ -25,8 +25,7 @@ block content
           div
             a(href='/users/edit') Edit profile details
           div
-            a(href='/jobs/2') scheduled jobs
-            //- a(href=`/jobs/${user.id}`) Scheduled Jobs
+            a(href=`/jobs/${user.id}`) Scheduled Jobs
           div
             a(href='/home') Home
           div

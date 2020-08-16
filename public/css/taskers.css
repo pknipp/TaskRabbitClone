@@ -192,3 +192,8 @@ body {
     color: white;
     border: 1px solid gray;
 }
+
+.confirm:hover {
+    background-color: #269712;
+    cursor: pointer;
+}

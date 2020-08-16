@@ -72,6 +72,7 @@ body {
     text-align: center;
 }
 
+
 #taskersContainer {
     border-radius: 5px;
     width: 80%;
@@ -83,6 +84,8 @@ body {
     border: 1px solid darkgray;
     padding: 20px;
     margin: 20px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.3);
 }
 
 .sort {
@@ -102,14 +105,18 @@ body {
 
 .nameDiv {
     grid-area: nameDiv;
-    font-size: 30px;
+    font-size: 33px;
     font-weight: bold;
     margin: 0, auto;
+    margin-left: 20px;
 }
 
 .skillDiv {
     grid-area: skillDiv;
-    font-size: 20px;
+    font-size: 28px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
 }
 
 .buttonDiv {
@@ -122,10 +129,21 @@ body {
     border: 1px solid lightgray;
     border-radius: 5px;
     background-color: #f9fafb;
+    margin-right: 5%;
+}
+
+.picDiv > img {
+    height: 90%;
+    width: fit-content;
+    max-width: 90%;
 }
 
 .priceDiv {
     grid-area: priceDiv;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 .tasker {
     display: grid;
@@ -139,4 +157,43 @@ body {
 
 .picture {
     margin: auto;
+}
+
+.create-job {
+    width: 23.75%;
+    height: 75%;
+    border-radius: 5px;
+    font-size: 18px;
+    background-color: #34C419;
+    color: white;
+    margin-top: 1%;
+}
+
+.create-job:hover {
+    background-color: #269712;
+    cursor: pointer;
+}
+
+.details {
+    height: 90%;
+    width: 90%;
+    font-size: 18px;
+    margin-top: 1%;
+    padding-left: 2%;
+}
+
+.confirm {
+    height: 90%;
+    width: 10%;
+    border-radius: 3px;
+    font-size: 18px;
+    margin-top: 1%;
+    background-color: #34C419;
+    color: white;
+    border: 1px solid gray;
+}
+
+.confirm:hover {
+    background-color: #269712;
+    cursor: pointer;
 }

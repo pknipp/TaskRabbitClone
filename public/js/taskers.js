@@ -33,20 +33,20 @@ const getTaskers = async (jobTypeId, sort) => {
             nameDiv.classList.add("nameDiv");
 
             let skillDiv = document.createElement("div")
-            skillDiv.innerHTML= "Skill:   "
+            skillDiv.innerHTML= "Skill:    "
             let skill = tasker.skill;
             while(skill > 0) {
                 let star = document.createElement("img")
                 star.setAttribute("src", "/public/star-icon.svg");
                 star.setAttribute("width", "5%")
-                star.style.marginBottom = "-2px";
+                star.style.marginBottom = "2px";
                 skillDiv.appendChild(star);
                 skill--;
             }
             skillDiv.classList.add("skillDiv");
 
             let priceDiv = document.createElement("div")
-            priceDiv.innerHTML = `Price/Day: ${tasker.price} Pence`;
+            priceDiv.innerHTML = `<div>Price/Day:</div><div style="font-size: 25px; margin-top: 5px"> ${tasker.price} Pence</div>`;
             priceDiv.classList.add("priceDiv")
 
             let buttonDiv = document.createElement("div")
@@ -57,7 +57,6 @@ const getTaskers = async (jobTypeId, sort) => {
             picDiv.classList.add("picDiv")
             let pic = document.createElement("img");
             pic.setAttribute("src", `/public/jobtypeimages/${tasker.JobType.name}.svg`)
-            pic.setAttribute("height", "90%");
             pic.classList.add("picture")
             picDiv.appendChild(pic);
 
@@ -72,7 +71,9 @@ const getTaskers = async (jobTypeId, sort) => {
             taskersContainer.appendChild(taskerContainer);
         })
         let pageTitleHeader = document.getElementById("pageTitle");
-        let pageTitle = taskers[0].JobType.name + "s";
+        let pageTitle = (taskers[0].JobType.name === "Mercenary") ? "Mercenaries" :
+                        (taskers[0].JobType.name === "Watchman") ? "Watchmen" :
+                        taskers[0].JobType.name + "s";
         pageTitleHeader.innerHTML = pageTitle;
     }
 }
@@ -98,8 +99,11 @@ pageLogo.addEventListener("click", e => {
 
 function getNewDate() {
     const date = new Date()
+    console.log(date);
     const year = date.getFullYear().toString();
-    const month = date.getMonth().toString();
+    // Normally zero indexed
+    const monthNum = (date.getMonth() + 1);
+    const month = monthNum < 10 ? `0${monthNum}` : monthNum.toString();
     const day = date.getDate().toString();
     let fullDate = `${year}-${month}-${day}`
     return fullDate;
@@ -117,10 +121,11 @@ taskersContainer.addEventListener("click", async (e) => {
         const buttonDiv = e.target.parentElement;
         let detailInput = document.createElement("input");
         detailInput.setAttribute("type", "textArea");
+        detailInput.classList.add("details")
         detailInput.setAttribute("placeholder", "Please specify job details");
         let confirmButton = document.createElement("button");
         confirmButton.innerHTML = "Confirm";
-
+        confirmButton.classList.add("confirm")
 
         buttonDiv.innerHTML = "";
         buttonDiv.appendChild(detailInput);

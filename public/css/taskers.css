@@ -72,6 +72,7 @@ body {
     text-align: center;
 }
 
+
 #taskersContainer {
     border-radius: 5px;
     width: 80%;
@@ -114,6 +115,8 @@ body {
     grid-area: skillDiv;
     font-size: 28px;
     margin-left: 20px;
+    display: flex;
+    align-items: center;
 }
 
 .buttonDiv {
@@ -127,6 +130,12 @@ body {
     border-radius: 5px;
     background-color: #f9fafb;
     margin-right: 5%;
+}
+
+.picDiv > img {
+    height: 90%;
+    width: fit-content;
+    max-width: 90%;
 }
 
 .priceDiv {
@@ -163,4 +172,23 @@ body {
 .create-job:hover {
     background-color: #269712;
     cursor: pointer;
+}
+
+.details {
+    height: 90%;
+    width: 90%;
+    font-size: 18px;
+    margin-top: 1%;
+    padding-left: 2%;
+}
+
+.confirm {
+    height: 90%;
+    width: 10%;
+    border-radius: 3px;
+    font-size: 18px;
+    margin-top: 1%;
+    background-color: #34C419;
+    color: white;
+    border: 1px solid gray;
 }

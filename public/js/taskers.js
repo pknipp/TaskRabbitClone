@@ -33,13 +33,13 @@ const getTaskers = async (jobTypeId, sort) => {
             nameDiv.classList.add("nameDiv");
 
             let skillDiv = document.createElement("div")
-            skillDiv.innerHTML= "Skill:   "
+            skillDiv.innerHTML= "Skill:    "
             let skill = tasker.skill;
             while(skill > 0) {
                 let star = document.createElement("img")
                 star.setAttribute("src", "/public/star-icon.svg");
                 star.setAttribute("width", "5%")
-                star.style.marginBottom = "-6px";
+                star.style.marginBottom = "2px";
                 skillDiv.appendChild(star);
                 skill--;
             }
@@ -57,7 +57,6 @@ const getTaskers = async (jobTypeId, sort) => {
             picDiv.classList.add("picDiv")
             let pic = document.createElement("img");
             pic.setAttribute("src", `/public/jobtypeimages/${tasker.JobType.name}.svg`)
-            pic.setAttribute("height", "90%");
             pic.classList.add("picture")
             picDiv.appendChild(pic);
 
@@ -122,10 +121,11 @@ taskersContainer.addEventListener("click", async (e) => {
         const buttonDiv = e.target.parentElement;
         let detailInput = document.createElement("input");
         detailInput.setAttribute("type", "textArea");
+        detailInput.classList.add("details")
         detailInput.setAttribute("placeholder", "Please specify job details");
         let confirmButton = document.createElement("button");
         confirmButton.innerHTML = "Confirm";
-
+        confirmButton.classList.add("confirm")
 
         buttonDiv.innerHTML = "";
         buttonDiv.appendChild(detailInput);

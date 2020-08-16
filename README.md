@@ -15,16 +15,15 @@ B) MINOR FUNCTIONALITY (SPECIFIC):
 1) (PK) incorporate UD functionality into jobs page
 2) put nav links on all pages to places like home, account details,
   or jobs
-3) (PK) add JobType column to jobs page
 4) (PK) on jobs page, create a three-set toggle which'll show
   the following jobs according to their #jobDate attribute:
   (a) all of them, (b) past, and (c) future
 5) (PK) separate "account" route into front-end & back-end?
 6) (PK) put csrf middleware into a couple of routes, both
   front and back?
-7) PK things: make dragon clickable, protect all routes, allow
+7) PK things: allow
 user to delete job, allow user to edit jobDate, remove console
-logs, put avatar on account details, debug displayed errors,
+logs, put avatar on account details,
 insert more nav links on each page, work on admin page,
 
 C) MINOR FUNCTIONALITY (GENERAL):

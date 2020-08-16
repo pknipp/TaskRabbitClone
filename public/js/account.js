@@ -8,12 +8,4 @@ document.getElementById("logoutbox").addEventListener('click', async() => {
   });
 })
 
-// const form = document.getElementById("jobtype-form");
-// form.addEventListener("submit", async (e) => {
-//     e.preventDefault();
-//     const formData = new FormData(form);
-//     const jobtypeid = formData.get("jobTypeId");
-//     window.location.href = `/jobtypes/${jobtypeid}`
-
-//     const jobTypes = await JobType.findAll();
-// });
+document.querySelector(".page-header-logo").addEventListener("click", e => window.location.href = "/home")

@@ -78,14 +78,10 @@ sortButton.addEventListener("change", async e => {
     getJobs(userId, val)
 })
 
-// document.getElementById("logoutbox").addEventListener('click', async() => {
-//     const res = await fetch('/api/users/session', {
-//       method: "DELETE",
-//     })
-// });
+document.getElementById("logoutbox").addEventListener('click', async() => {
+    const res = await fetch('/api/users/session', {
+      method: "DELETE",
+    })
+});
 
-let pageLogo = document.querySelector(".page-header-logo");
-
-// pageLogo.addEventListener("click", e => {
-//     window.location.href = "/home";
-// })
+document.querySelector(".page-header-logo").addEventListener("click", e => window.location.href = "/home")

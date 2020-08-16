@@ -1,7 +1,7 @@
 extends layout
 
 block append head
-    div(id="dataDiv", data-userId=userId)
+    div(id="dataDiv" data-userid=user.id)
     link(rel="stylesheet" href="/public/css/register.css")
     script(src="/public/js/edit.js" type="module" defer)
 
@@ -28,4 +28,6 @@ block content
           input(type="password" name="password2" class="signUpInput input" placeholder="Confirm Password" required)
         ul#errors-container
         div(id="logInDiv")
-          button(type="submit" class="signUpButton" class="signUpInput") Edit account details
+          button(type="submit" class="signUpButton" class="signUpInput") Submit your changes
+      div(id="cancelDiv")
+        button(type="submit" class="signUpButton" class="signUpInput") Cancel

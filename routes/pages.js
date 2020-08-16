@@ -28,12 +28,16 @@ router.get('/users/signup', csrfProtection, (req, res) => {
 });
 
 router.get('/users/edit', csrfProtection, (req, res) => {
-  if (!req.user) return res.redirect("/home");
-  res.render("edit", { csrf: req.csrfToken(), user: req.user});
+  const user = req.user;
+  if (!user) return res.redirect("/home");
+  res.render("edit", { csrf: req.csrfToken(), user});
 });
+//
 
 router.get('/users/delete', csrfProtection, (req, res) => {
-  if (req.user) res.render("delete", {csrf: req.csrfToken()});
+  const user = req.user;
+  if (!user) res.redirect("/login");
+  res.render("delete", {csrf: req.csrfToken()});
   res.redirect("/home");
 });
 
@@ -67,17 +71,25 @@ router.get('/', (req, res) => {
 })
 
 router.get('/users/:id(\\d+)', async (req, res) => {
+  const user = req.user;
   const id = Number(req.params.id);
-  const user = req.user.dataValues;
-  if (user && user.id === id) res.render("account",{user});
-  res.redirect("/login");
-});
+  if (!user) res.redirect("/login");
+  if (user.id === id) {
+    res.render("account", {user});
+  } else {
+    res.render("unauthorized", {message: "You are not authorized to access this page."});
+  }
+})
 
 router.get('/jobs/:id(\\d+)', (req, res) => {
+  const user = req.user;
   const id = Number(req.params.id);
-  const user = req.user.dataValues;
-  if (user && user.id === id) res.render("jobs",{user});
-  res.redirect("/login");
+  if (!user) res.redirect("/login");
+  if (user.id === id) {
+    res.render("jobs", {user});
+  } else {
+    res.render("unauthorized", {message: "You are not authorized to access this page."});
+  }
 });
 
 router.get('/construction', (req, res) => res.render("construction"));

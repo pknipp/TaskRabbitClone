@@ -1,10 +1,10 @@
 const form = document.querySelector('#signup-form');
+const cancel=document.getElementById("cancelDiv");
 const errorsContainer = document.querySelector("#errors-container");
 const dataDiv = document.getElementById("dataDiv");
 const userId = dataDiv.dataset.userid;
 
 form.addEventListener('submit', async (e) => {
-  console.log('submitting');
   e.preventDefault();
   const formData = new FormData(form);
   const firstName = formData.get('firstName');
@@ -36,5 +36,11 @@ form.addEventListener('submit', async (e) => {
     return;
   }
 
-  window.location.href = '/home';
+  window.location.href = `/users/${userId}`;
+});
+
+cancel.addEventListener('click', async (e) => {
+  e.preventDefault();
+//  window.location.href = '/home';
+  window.location.href = `/users/${userId}`;
 });

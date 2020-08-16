@@ -62,6 +62,19 @@ const getJobs = async (userId, sort) => {
       picDiv.appendChild(pic)
       jobContainer.appendChild(picDiv);
 
+      // let buttonContainer = document.createElement("div");
+      // buttonContainer.classList.add("buttonContainer");
+      // let buttona = document.createElement("button");
+      // let buttonb = document.createElement("button");
+      // let buttonc = document.createElement("button");
+      // buttona.id = `${job.userId}_${job.taskerId}_a`;
+      // buttonb.id = `${job.id}b`;
+      // buttonc.id = `${job.id}c`;
+      // buttonContainer.appendChild(buttona);
+      // buttonContainer.appendChild(buttonb);
+      // buttonContainer.appendChild(buttonc);
+      // jobContainer.appendChild(buttonContainer);
+
       jobsContainer.appendChild(jobContainer);
     })
 

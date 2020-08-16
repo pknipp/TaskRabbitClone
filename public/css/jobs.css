@@ -92,12 +92,13 @@ body {
 
 .job {
     display: grid;
-    grid-template-rows: 70px 70px 30px;
-    grid-template-columns: 30% 25% 45%;
+    grid-template-rows: 55px 40px 45px 1px;
+    grid-template-columns: 34% 34% 32%;
     grid-template-areas:
     "picDiv taskerNameDiv dateDiv"
     "picDiv taskerSkillDiv taskerPriceDiv"
-    "picDiv detailsDiv detailsDiv";
+    "picDiv detailsDiv detailsDiv"
+    "buttonContainer buttonContainer buttonContainer";
 
     background-color: white;
     border: 1px solid darkgray;
@@ -135,12 +136,21 @@ body {
     grid-area: detailsDiv;
 }
 
-.buttonDiv {
-    grid-area: buttonDiv;
-}
-
 .taskerPriceDiv {
     grid-area: taskerPriceDiv;
+}
+
+.buttonContainer {
+    grid-area: buttonContainer;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    flex-grow: 2;
+    padding: 0 5px;
 }
 
 .picture {

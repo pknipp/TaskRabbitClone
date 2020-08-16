@@ -1,5 +1,7 @@
 const form = document.querySelector('#signup-form');
 const errorsContainer = document.querySelector("#errors-container");
+const dataDiv = document.getElementById("dataDiv");
+const userId = dataDiv.dataset.userid;
 
 form.addEventListener('submit', async (e) => {
   console.log('submitting');

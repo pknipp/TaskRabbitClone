@@ -1,5 +1,6 @@
 
 const dataDiv = document.getElementById("dataDiv");
+// delete following after Simon sees destruction of case-sensitivity
 console.log(dataDiv);
 const userId = dataDiv.dataset.userid;
 const sortButton = document.getElementById("sort-button");
@@ -17,18 +18,22 @@ const getJobs = async (userId, sort) => {
 
             let dateDiv = document.createElement("div");
             dateDiv.innerHTML = `Date scheduled: ${job.jobDate}`;
+            // dateDiv.innerHTML = `Date scheduled: ${job.Jobs.jobDate}`;
             jobContainer.appendChild(dateDiv);
 
             let taskerDiv = document.createElement("div");
             taskerDiv.innerHTML = `Tasker: ${job.Tasker.name}`;
+            // taskerDiv.innerHTML = `Tasker: ${job.name}`;
             jobContainer.appendChild(taskerDiv);
 
             let priceDiv = document.createElement("div");
             priceDiv.innerHTML = `Price: ${job.Tasker.price}`;
+//            priceDiv.innerHTML = `Price: ${job.price} and Type: ${job.JobTypes.name}`
             jobContainer.appendChild(priceDiv);
 
             let detailsDiv = document.createElement("div");
             detailsDiv.innerHTML = `Details: ${job.details}`;
+            // detailsDiv.innerHTML = `Details: ${job.Jobs.details}`;
             jobContainer.appendChild(detailsDiv);
 
             // add individual job to jobs container

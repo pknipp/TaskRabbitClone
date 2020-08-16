@@ -83,6 +83,8 @@ body {
     border: 1px solid darkgray;
     padding: 20px;
     margin: 20px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.3);
 }
 
 .sort {
@@ -102,14 +104,16 @@ body {
 
 .nameDiv {
     grid-area: nameDiv;
-    font-size: 30px;
+    font-size: 33px;
     font-weight: bold;
     margin: 0, auto;
+    margin-left: 20px;
 }
 
 .skillDiv {
     grid-area: skillDiv;
-    font-size: 20px;
+    font-size: 28px;
+    margin-left: 20px;
 }
 
 .buttonDiv {
@@ -122,10 +126,15 @@ body {
     border: 1px solid lightgray;
     border-radius: 5px;
     background-color: #f9fafb;
+    margin-right: 5%;
 }
 
 .priceDiv {
     grid-area: priceDiv;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 .tasker {
     display: grid;
@@ -139,4 +148,19 @@ body {
 
 .picture {
     margin: auto;
+}
+
+.create-job {
+    width: 23.75%;
+    height: 75%;
+    border-radius: 5px;
+    font-size: 18px;
+    background-color: #34C419;
+    color: white;
+    margin-top: 1%;
+}
+
+.create-job:hover {
+    background-color: #269712;
+    cursor: pointer;
 }

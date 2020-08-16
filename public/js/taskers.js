@@ -39,14 +39,14 @@ const getTaskers = async (jobTypeId, sort) => {
                 let star = document.createElement("img")
                 star.setAttribute("src", "/public/star-icon.svg");
                 star.setAttribute("width", "5%")
-                star.style.marginBottom = "-2px";
+                star.style.marginBottom = "-6px";
                 skillDiv.appendChild(star);
                 skill--;
             }
             skillDiv.classList.add("skillDiv");
 
             let priceDiv = document.createElement("div")
-            priceDiv.innerHTML = `Price/Day: ${tasker.price} Pence`;
+            priceDiv.innerHTML = `<div>Price/Day:</div><div style="font-size: 25px; margin-top: 5px"> ${tasker.price} Pence</div>`;
             priceDiv.classList.add("priceDiv")
 
             let buttonDiv = document.createElement("div")
@@ -100,8 +100,11 @@ pageLogo.addEventListener("click", e => {
 
 function getNewDate() {
     const date = new Date()
+    console.log(date);
     const year = date.getFullYear().toString();
-    const month = date.getMonth().toString();
+    // Normally zero indexed
+    const monthNum = (date.getMonth() + 1);
+    const month = monthNum < 10 ? `0${monthNum}` : monthNum.toString();
     const day = date.getDate().toString();
     let fullDate = `${year}-${month}-${day}`
     return fullDate;

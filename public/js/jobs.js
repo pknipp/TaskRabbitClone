@@ -2,6 +2,8 @@
 const dataDiv = document.getElementById("dataDiv");
 // delete following after Simon sees destruction of case-sensitivity
 console.log(dataDiv);
+console.log(dataDiv.dataset);
+console.log(dataDiv.dataset.userid);
 const userId = dataDiv.dataset.userid;
 const sortButton = document.getElementById("sort-button");
 

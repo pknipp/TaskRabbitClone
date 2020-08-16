@@ -3,6 +3,7 @@ const jobTypeId = dataDiv.dataset.jobtype;
 const userId = dataDiv.dataset.user;
 const name = dataDiv.dataset.name;
 const _csrf = dataDiv.dataset.csrf;
+console.log(dataDiv.dataset);
 console.log(jobTypeId, userId, name, _csrf);
 const sortButton = document.getElementById("sort-button");
 

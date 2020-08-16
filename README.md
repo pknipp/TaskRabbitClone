@@ -12,7 +12,9 @@ A) MAJOR FUNCTIONALITY:
   with full CRUD-functionality for the Jobtype and Tasker Models.
 
 B) MINOR FUNCTIONALITY (SPECIFIC):
-1) finish taskers page
+1) (PK) incorporate UD functionality into jobs page
+2) put nav links on all pages to places like home, account details,
+  or jobs
 3) (PK) add JobType column to jobs page
 4) (PK) on jobs page, create a three-set toggle which'll show
   the following jobs according to their #jobDate attribute:

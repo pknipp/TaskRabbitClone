@@ -33,8 +33,8 @@ router.get('/users/edit', csrfProtection, (req, res) => {
 });
 
 router.get('/users/delete', csrfProtection, (req, res) => {
-  if (!req.user) return res.redirect("/home");
-  res.render("delete", { csrf: req.csrfToken() });
+  if (req.user) res.render("delete", {csrf: req.csrfToken()});
+  res.redirect("/home");
 });
 
 router.get('/home', csrfProtection, async (req, res) => {
@@ -54,23 +54,30 @@ router.get('/jobtypes/:id(\\d+)', csrfProtection, (req, res) => {
   }
 })
 
+router.get('/taskers/:id(\\d+)/delete', csrfProtection, async (req, res) => {
+  res.render("deleteTasker", {csrf: req.csrfToken() });
+})
+
+router.get('/admin', csrfProtection, async (req, res) => {
+  res.render("admin", {csrf: req.csrfToken()});
+})
+
 router.get('/', (req, res) => {
   res.redirect('/home');
 })
 
 router.get('/users/:id(\\d+)', async (req, res) => {
-  const user = await User.findByPk(req.params.id);
-//  console.log("Is there a user on the request?", !!req.user);
-//  console.log("Does req.user.id === req.params.id?", req.params.id, req.user.id);
-  if (req.user) res.render("account", {user, jobsPath: `/jobs/${user.id}`});
+  const id = Number(req.params.id);
+  const user = req.user.dataValues;
+  if (user && user.id === id) res.render("account",{user});
   res.redirect("/login");
 });
 
 router.get('/jobs/:id(\\d+)', (req, res) => {
-//  if (req.user && req.user.id === req.params.id)
-  console.log("pages route thinks that userId = req.params.id = ", req.params.id);
-  res.render("jobs", {userId: req.params.id});
-//  res.redirect("/login");
+  const id = Number(req.params.id);
+  const user = req.user.dataValues;
+  if (user && user.id === id) res.render("jobs",{user});
+  res.redirect("/login");
 });
 
 router.get('/construction', (req, res) => res.render("construction"));

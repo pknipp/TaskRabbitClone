@@ -3,7 +3,7 @@ const jobTypeId = dataDiv.dataset.jobtype;
 const userId = dataDiv.dataset.user;
 const name = dataDiv.dataset.name;
 const _csrf = dataDiv.dataset.csrf;
-console.log(jobTypeId, userId, name, _csrf);
+console.log("dataDiv = ", dataDiv);
 const sortButton = document.getElementById("sort-button");
 
 if (userId !== undefined) {
@@ -54,10 +54,11 @@ const getTaskers = async (jobTypeId, sort) => {
             buttonDiv.classList.add("buttonDiv")
 
             let picDiv = document.createElement("div");
-            picDiv.classList.add("picDiv")
+            picDiv.classList.add("picDiv");
             let pic = document.createElement("img");
             pic.setAttribute("src", `/public/jobtypeimages/${tasker.JobType.name}.svg`)
-            pic.classList.add("picture")
+            pic.setAttribute("height", "90%");
+            pic.classList.add("picture");
             picDiv.appendChild(pic);
 
             taskerContainer.appendChild(picDiv);

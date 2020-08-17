@@ -8,7 +8,7 @@ const sortButton = document.getElementById("sort-button");
 
 if (userId !== undefined) {
     let namespan = document.createElement("span")
-    namespan.innerHTML = `Hi ${name}!`
+    namespan.innerHTML = `Hi ${name ? name : "there"}!`
     document.getElementById("account").prepend(namespan)
     document.getElementById("accountactions").innerHTML = "Manage account"
     document.getElementById("register").href = `/users/${userId}`

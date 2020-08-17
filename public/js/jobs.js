@@ -6,7 +6,7 @@ const sortButton = document.getElementById("sort-button");
 
 if (userId !== undefined) {
   let namespan = document.createElement("span")
-  namespan.innerHTML = `Hi ${firstName}!`
+  namespan.innerHTML = `Hi ${firstName ? firstName : "there"}!`
   document.getElementById("account").prepend(namespan)
   document.getElementById("accountactions").innerHTML = "Manage account"
   document.getElementById("register").href = `/users/${userId}`
@@ -66,7 +66,7 @@ const getJobs = async (userId, sort) => {
     })
 
     let pageTitleHeader = document.getElementById("pageTitle");
-    let pageTitle = jobs[0].User.firstName + " " + jobs[0].User.lastName + "'s jobs";
+    let pageTitle = (jobs[0].User.firstName ? jobs[0].User.firstName : "") + " " + jobs[0].User.lastName + "'s jobs";
     pageTitleHeader.innerHTML = pageTitle;
   }
 }

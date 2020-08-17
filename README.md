@@ -4,6 +4,11 @@
 STYLING:
 - Suggestions?
 
+BEFORE WE FORGET:
+proper capitalization for one directory of images
+consistent validation of User.phone
+anything else?
+
 A) MAJOR FUNCTIONALITY:
 1) (stretch) provide a Tasker with almost all abilities of a user
   (creating a  account, logging in, participating in the

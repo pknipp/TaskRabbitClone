@@ -17,7 +17,6 @@ router.get("/users/register", (req, res) => {
 })
 
 router.get('/users/login', csrfProtection, (req, res) => {
-  console.log(req.id);
   if (req.user) return res.redirect('/home');
   res.render('login', { csrf: req.csrfToken() });
 });
@@ -37,8 +36,8 @@ router.get('/users/edit', csrfProtection, (req, res) => {
 router.get('/users/delete', csrfProtection, (req, res) => {
   const user = req.user;
   if (!user) res.redirect("/login");
-  res.render("delete", {csrf: req.csrfToken()});
-  res.redirect("/home");
+  res.render("delete", {id: user.id, csrf: req.csrfToken()});
+//  res.redirect("/home");
 });
 
 router.get('/home', csrfProtection, async (req, res) => {

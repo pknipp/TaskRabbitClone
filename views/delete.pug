@@ -2,6 +2,7 @@ extends layout
 
 block append head
     link(rel="stylesheet" href="/public/css/register.css")
+    div(id="dataDiv", data-id=id, data-csrf=csrf)
     script(src="/public/js/delete.js" type="module" defer)
 
 block content
@@ -17,3 +18,5 @@ block content
         div(id="logInDiv")
           p(align="center") Are you sure that you want to delete your account?
           button(type="submit" class="signUpButton" class="signUpInput") We will miss you!
+      div(id="cancelDiv")
+        button(type="submit" class="cancelButton" class="signUpInput") Cancel

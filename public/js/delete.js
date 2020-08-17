@@ -1,13 +1,14 @@
 const form = document.querySelector('#signup-form');
 const errorsContainer = document.querySelector("#errors-container");
+const dataDiv = document.getElementById("dataDiv");
+const id = dataDiv.dataset.id;
+const _csrf = dataDiv.dataset.csrf;
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const formData = new FormData(form);
   const _csrf = formData.get("_csrf");
   errorsContainer.innerHTML = '';
-  console.log("about to fetch");
-  console.log("formData.get(_csrf) = ", _csrf);
   const res = await fetch('/api/users/delete', {
     method: "DELETE",
     body: JSON.stringify({_csrf: formData.get('_csrf')}),
@@ -15,9 +16,7 @@ form.addEventListener('submit', async (e) => {
       "Content-Type": "application/json"
     }
   });
-  console.log("done fetch, but before res.json");
   const data = await res.json();
-  console.log("res.ok equal ", res.ok);
   if (!res.ok) {
     const { message, errors } = data;
     for (let error of errors) {
@@ -29,4 +28,10 @@ form.addEventListener('submit', async (e) => {
   }
 
   window.location.href = '/home';
+});
+
+document.getElementById("cancelDiv").addEventListener('click', async (e) => {
+  e.preventDefault();
+  window.location.href = `/users/${id}`;
+//  window.location.href = `/home`;
 });

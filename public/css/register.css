@@ -62,7 +62,7 @@
     z-index: 2;
 }
 
-#logInDiv, #signUpDiv, #emailDiv, #passwordDiv {
+#logInDiv, #signUpDiv, #emailDiv, #passwordDiv, #cancelDiv {
     width: 100%;
 }
 
@@ -107,6 +107,17 @@
 .signUpButton {
     background-color: #34C419;
     color: white;
+}
+
+.cancelButton {
+    background-color: #FE6465;
+    color: white;
+    margin-top: -1%;
+}
+
+.cancelButton:hover {
+    background-color: #e05555;
+    cursor: pointer;
 }
 
 .logInButton {

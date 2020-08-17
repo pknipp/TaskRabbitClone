@@ -12,7 +12,6 @@ A) MAJOR FUNCTIONALITY:
   with full CRUD-functionality for the Jobtype and Tasker Models.
 
 B) MINOR FUNCTIONALITY (SPECIFIC):
-1) (PK) incorporate UD functionality into jobs page
 2) put nav links on all pages to places like home, account details,
   or jobs
 4) (PK) on jobs page, create a three-set toggle which'll show

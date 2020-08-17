@@ -100,7 +100,6 @@ pageLogo.addEventListener("click", e => {
 
 function getNewDate() {
     const date = new Date()
-    console.log(date);
     const year = date.getFullYear().toString();
     // Normally zero indexed
     const monthNum = (date.getMonth() + 1);
@@ -118,7 +117,6 @@ taskersContainer.addEventListener("click", async (e) => {
             return;
         }
         let taskerId = e.target.value;
-        console.log(taskerId, userId);
         const buttonDiv = e.target.parentElement;
         let detailInput = document.createElement("input");
         detailInput.setAttribute("type", "textArea");

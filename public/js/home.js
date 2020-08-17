@@ -17,7 +17,6 @@ if (userId !== undefined) {
 const getJobTypes = async () => {
   const res = await fetch('/api/jobtypes/');
   let jobTypes = await res.json();
-  console.log(jobTypes);
   let jobTypesContainer = document.getElementById("jobTypesContainer");
     if(res.ok) {
         jobTypes.forEach(jobType => {
@@ -47,7 +46,6 @@ getJobTypes();
 const form = document.getElementById("jobtype-form");
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    console.log("Yo whaddup");
     const formData = new FormData(form);
     const jobtypeid = formData.get("jobTypeId");
     // const res = await fetch(`/api/jobtypes/${jobtypeid}`, {

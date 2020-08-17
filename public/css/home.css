@@ -13,9 +13,13 @@
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 75px;
+  padding-right: 75px;
 }
 .page {
-  position: relative;
+  /* position: relative; */
 }
 .page-header-lisulo a {
   text-decoration: none;
@@ -45,10 +49,12 @@
   padding-bottom: 0.625em;
   font-size: 1rem;
 }
+.page-header-lisulo a button:hover  {
+  background-color: #F8F8F8;
+  cursor: pointer;
+}
 
 .main-content {
-  margin-left: auto;
-  margin-right: auto;
   height: 495px;
   width: 100%;
   background: url(/public/dragonslayer.svg) no-repeat;
@@ -61,11 +67,13 @@
 
 .main-content-box {
   height: 300px;
-  width: 75%;
+  border-radius: 5px;
+  width: 40%;
   background-color: white;
   text-align: center;
   font-family: proxima_nova_rgregular;
-  font-size: 30px;
+  font-size: 25px;
+  padding: 30px;
 }
 
 .main-content-box span {
@@ -77,14 +85,18 @@
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
   height: 50px;
-  padding: 2rem;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  padding: 50px;
+  justify-content: center;
+  /* text-align: center; */
 }
 
 .banner-text span {
   font-family: proxima_nova_rgregular;
   font-weight: bold;
   font-size: 24px;
+  padding: 20px;
 
 }
 
@@ -93,7 +105,13 @@
   font-weight: bold;
   font-size: 15px;
   color: rgb(81, 175, 51);
+  padding: 20px;
 
+
+}
+
+.banner-img {
+  padding: 20px;
 }
 
 
@@ -106,7 +124,12 @@ select {
   color: rgb(81, 175, 51);
   text-align: center;
   height: 50px;
-  width: 200px;
+  width: 300px;
+}
+
+select:hover {
+  background-color: #F8F8F8;
+  cursor: pointer;
 }
 
 
@@ -146,7 +169,7 @@ button {
   border: 1px solid darkgray;
   margin: 20px;
   text-align: center;
-  height: 175px;
+  height: 200px;
 }
 
 form {
@@ -154,13 +177,17 @@ form {
 }
 
 .jobType a {
+  margin-top: 50px;
   text-decoration: none;
-  color: #438E29;
+  color: black;
+  font-size: 20px;
 }
 
 .jobType span {
-  color: black;
-  font-size: 10px;
+  color: #438E29;
+  font-size: 15px;
+  padding-bottom: 50px;
+  padding-top: 10px;
 }
 
 /* .jobType div {
@@ -172,6 +199,7 @@ form {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
   width: 100%;
   height: 75px;
   align-self: center;
@@ -180,7 +208,7 @@ form {
   background-color: lightgray;
 }
 .page-bottom {
-  margin-top: 20px;
+  margin-top: 150px;
   font-family: proxima_nova_rgregular;
 }
 
@@ -195,4 +223,14 @@ form {
 
 .hidden {
   display: none;
+}
+
+.page-bottom h2 {
+  margin-left: 160px;
+  font-size: 32px;
+}
+
+button:hover {
+  background-color: #269712;
+  cursor: pointer;
 }

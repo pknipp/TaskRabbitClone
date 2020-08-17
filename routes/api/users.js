@@ -62,15 +62,22 @@ router.put(
   routeHandler(async (req, res, next) => {
     const token = req.cookies.token;
     const user = await User.findByPk(jwt.verify(token, secret).id);
-    user.firstName = req.body.firstName;
-    user.lastName = req.body.lastName;
-    user.email = req.body.email;
-    user.phone = req.body.phone;
-    user.hashedPassword = bcrypt.hashSync(req.body.password, 10),
-    await user.save();
-    res.cookie("token", req.cookies.token, { maxAge: expiresIn * 1000 });
-    // Is following step really needed?  (PK)
-    res.json({ id: user.id, token });
+    if(user.firstName === "Demo" || user.lastName === "User" || user.id === "2" || user.email === "demo@user.io") {
+      let err = new Error("You can not edit the details of the demo user!");
+      res.status(404).json({errors: ["You can not edit the details of the demo user!"]})
+    } else {
+      user.firstName = req.body.firstName;
+      user.lastName = req.body.lastName;
+      user.email = req.body.email;
+      user.phone = req.body.phone;
+      user.hashedPassword = bcrypt.hashSync(req.body.password, 10);
+
+      await user.save();
+      res.cookie("token", req.cookies.token, { maxAge: expiresIn * 1000 });
+      // Is following step really needed?  (PK)
+      res.json({ id: user.id, token });
+    }
+
   })
 );
 

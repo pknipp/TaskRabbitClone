@@ -87,6 +87,7 @@
 }
 
 .loginInput {
+    font-family: proxima_nova_rgregular;
     width: 50%;
     margin: 3% 25%;
     height: 40px;
@@ -95,6 +96,7 @@
 }
 
 .signUpInput {
+    font-family: proxima_nova_rgregular;
     width: 50%;
     margin: 3% 25%;
     height: 40px;
@@ -105,6 +107,7 @@
 
 
 .signUpButton {
+    font-family: proxima_nova_rgregular;
     background-color: #34C419;
     color: white;
 }
@@ -121,6 +124,7 @@
 }
 
 .logInButton {
+    font-family: proxima_nova_rgregular;
     background-color: #FFFFFF;
 }
 

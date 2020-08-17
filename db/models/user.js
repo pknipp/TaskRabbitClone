@@ -51,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     phone: {
-      type: DataTypes.BIGINT,
+      type: DataTypes.BIGINT
       // validate: {
       //   isInt:{
       //     msg: 'Phone number must include only digits.'
@@ -60,7 +60,7 @@ module.exports = (sequelize, DataTypes) => {
       //     args: [10, 10],
       //     msg: 'Phone number must include exactly 10 digits'
       //   }
-      // }
+      //}
     },
     hashedPassword: {
       type: DataTypes.STRING.BINARY,

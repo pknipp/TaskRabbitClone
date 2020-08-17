@@ -5,8 +5,6 @@ STYLING:
 - Suggestions?
 
 BEFORE WE FORGET:
-proper capitalization for one directory of images
-consistent validation of User.phone
 anything else?
 
 A) MAJOR FUNCTIONALITY:
@@ -30,11 +28,6 @@ B) MINOR FUNCTIONALITY (SPECIFIC):
 insert more nav links on each page, work on admin page,
 
 C) MINOR FUNCTIONALITY (GENERAL):
-1) remove any front-end console.logs
-2) ensure that each view properly reflects whether user is logged in
-3) if user is logged in, ensure that each page reflects that fact
-4) ensure adequate authorization (req.user && req.user.id === req.params.id)
-  on each (front-end?) route.  Otherwise, res.redirect elsewhere (login or home?)
 
 D) HOUSEKEEPING:
 1) shift image files "down" one level, as PK described earlier

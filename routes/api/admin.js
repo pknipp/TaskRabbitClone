@@ -83,9 +83,9 @@ router.delete(
 //  handleValidationErrors,
   routeHandler(async (req, res, next) => {
     const userId = req.body.userId;
-    console.log("api router thinks that userId = ", userId);
+//    console.log("api router thinks that userId = ", userId);
     const user = await User.findByPk(userId);
-    console.log("api router thinks that user = ", user);
+//    console.log("api router thinks that user = ", user);
     // user's jobs must be found & deleted before user may be deleted
     const jobs = await Job.findAll({where: {userId}});
     jobs.forEach(async job => await job.destroy());
@@ -134,7 +134,7 @@ router.delete(
   routeHandler(async (req, res, next) => {
     const jobTypeId = req.body.jobTypeId;
     const jobType = await JobType.findByPk(jobTypeId);
-    console.log(jobType);
+//    console.log(jobType);
     // jobType's taskers must be found & deleted before jobType may be deleted
     // taskers' jobs must be found & deleted before tasker may be deleted
     const taskers = await Tasker.findAll({where: {jobTypeId}});

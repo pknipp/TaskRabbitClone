@@ -21,7 +21,8 @@ B) MINOR FUNCTIONALITY (SPECIFIC):
 5) (PK) separate "account" route into front-end & back-end?
 6) (PK) put csrf middleware into a couple of routes, both
   front and back?
-7) PK things: allow user to delete job &/or modify jobDate, 
+7) PK things: allow user to delete job &/or modify jobDate
+(prob not, because sequelize disappears join PKs),
 insert more nav links on each page, work on admin page,
 
 C) MINOR FUNCTIONALITY (GENERAL):

@@ -4,8 +4,8 @@ deleteUserNode.addEventListener("submit", async e => {
     const formData = new FormData(deleteTaskerNode);
     const _csrf = formData.get("_csrf");
     const userId = formData.get("userId");
-    console.log("formData is ",formData);
-    console.log("public/js/admin.js thinks that userId = ", userId);
+//    console.log("formData is ",formData);
+//    console.log("public/js/admin.js thinks that userId = ", userId);
     const res = await fetch("/api/admin/deleteUser", {
         method: "DELETE", headers: {"Content-Type": "application/json"}, body: JSON.stringify({userId, _csrf})
     })

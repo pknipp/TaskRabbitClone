@@ -1,5 +1,4 @@
 const form = document.querySelector('#signup-form');
-const cancel=document.getElementById("cancelDiv");
 const errorsContainer = document.querySelector("#errors-container");
 const dataDiv = document.getElementById("dataDiv");
 const userId = dataDiv.dataset.userid;
@@ -25,7 +24,6 @@ form.addEventListener('submit', async (e) => {
     }
   });
   const data = await res.json();
-  console.log("res.ok equal ", res.ok);
   if (!res.ok) {
     const { message, errors } = data;
     for (let error of errors) {
@@ -39,8 +37,7 @@ form.addEventListener('submit', async (e) => {
   window.location.href = `/users/${userId}`;
 });
 
-cancel.addEventListener('click', async (e) => {
+document.getElementById("cancelDiv").addEventListener('click', async (e) => {
   e.preventDefault();
-//  window.location.href = '/home';
   window.location.href = `/users/${userId}`;
 });

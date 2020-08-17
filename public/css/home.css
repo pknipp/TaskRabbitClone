@@ -157,13 +157,15 @@ form {
 .jobType a {
   margin-top: 50px;
   text-decoration: none;
-  color: #438E29;
+  color: black;
+  font-size: 20px;
 }
 
 .jobType span {
-  color: black;
-  font-size: 10px;
+  color: #438E29;
+  font-size: 15px;
   padding-bottom: 50px;
+  padding-top: 10px;
 }
 
 /* .jobType div {

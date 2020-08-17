@@ -13,9 +13,11 @@
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 .page {
-  position: relative;
+  /* position: relative; */
 }
 .page-header-lisulo a {
   text-decoration: none;
@@ -45,10 +47,12 @@
   padding-bottom: 0.625em;
   font-size: 1rem;
 }
+.page-header-lisulo a button:hover  {
+  background-color: #F8F8F8;
+  cursor: pointer;
+}
 
 .main-content {
-  margin-left: auto;
-  margin-right: auto;
   height: 495px;
   width: 100%;
   background: url(/public/dragonslayer.svg) no-repeat;
@@ -78,15 +82,19 @@
 .page-banner {
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
-  height: 50px;
-  padding: 2rem;
-  text-align: center;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  padding: 50px;
+  justify-content: center;
+  /* text-align: center; */
 }
 
 .banner-text span {
   font-family: proxima_nova_rgregular;
   font-weight: bold;
   font-size: 24px;
+  padding: 20px;
 
 }
 
@@ -95,7 +103,12 @@
   font-weight: bold;
   font-size: 15px;
   color: rgb(81, 175, 51);
+  padding-left: 20px;
 
+
+}
+
+.banner-img {
 }
 
 
@@ -108,7 +121,12 @@ select {
   color: rgb(81, 175, 51);
   text-align: center;
   height: 50px;
-  width: 200px;
+  width: 400px;
+}
+
+select:hover {
+  background-color: #F8F8F8;
+  cursor: pointer;
 }
 
 
@@ -207,4 +225,9 @@ form {
 .page-bottom h2 {
   margin-left: 160px;
   font-size: 32px;
+}
+
+button:hover {
+  background-color: #269712;
+  cursor: pointer;
 }

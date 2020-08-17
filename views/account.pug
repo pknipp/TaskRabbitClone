@@ -2,11 +2,11 @@ extends layout
 
 block append head
   div(id="dataDiv", data-user=user)
+  script(src="/public/js/account.js" type="module" defer)
   link(rel="stylesheet" href="/public/css/auth.css")
   link(rel="stylesheet" href="/public/css/home.css")
   link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.css")
   link(rel="stylesheet" href="/public/css/account.css")
-  script(src="/public/js/account.js" type="module" defer)
 
 block content
   .page
@@ -25,9 +25,7 @@ block content
           div
             a(href='/users/edit') Edit profile details
           div
-            a(href='/construction') Notifications
-          div
-            a(href=jobsPath) Scheduled Jobs
+            a(href=`/jobs/${user.id}`) Scheduled Jobs
           div
             a(href='/home') Home
           div
@@ -37,7 +35,7 @@ block content
             div Account
           #bottom4
             #left5
-              div img goes here
+              .picDiv
             #right5
               span
                 i.fas.fa-user

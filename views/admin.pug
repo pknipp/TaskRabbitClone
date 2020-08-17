@@ -1,0 +1,33 @@
+extends layout.pug
+
+block append head
+  div(id="dataDiv", data-admin=admin)
+  script(src="/public/js/admin.js" type="module" defer)
+
+block content
+  h1 Poorly-styled, appropriately attituded, top-secret admin page
+  ul
+    li Do you want to "disappear" a particular user?  I'm SURE that their behavior was improper. If you specify its id# below and click "Delete", we are rid of them forever.
+    form(id="delete-user")
+      input(type="hidden" name="_csrf" value=csrf)
+      input(type="number" name="userId" placeholder="userId" required)
+      div(id="errors-container")
+      button(type="submit") Delete
+    li Do you want to cancel a particular job?  You are definitely right in doing so, because this was such a poor "arrangement". If you specify its id# below and click "Delete", no one will be any the wiser.
+    form(id="delete-job")
+      input(type="hidden" name="_csrf" value=csrf)
+      input(type="number" name="jobId" placeholder="jobId" required)
+      div(id="errors-container")
+      button(type="submit") Delete
+    li Did you execute a tasker?  No worries! If you specify his/her id# below and click "Delete", it'll eliminate  records of that person and his/her jobs: both past and future.  No fuss no muss.
+    form(id="delete-tasker")
+      input(type="hidden" name="_csrf" value=csrf)
+      input(type="number" name="taskerId" placeholder="taskerId" required)
+      div(id="errors-container")
+      button(type="submit") Delete
+    li Did you outlaw a particular job type from your kingdom?  I'm sure that it was necessary, your Lordship. If you specify its id# below and click "Delete", it'll eliminate records of that profession's existence.  Good riddance!
+    form(id="delete-jobtype")
+      input(type="hidden" name="_csrf" value=csrf)
+      input(type="number" name="jobTypeId" placeholder="jobTypeId" required)
+      div(id="errors-container")
+      button(type="submit") Delete

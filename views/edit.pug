@@ -1,8 +1,9 @@
 extends layout
 
 block append head
+    div(id="dataDiv" data-userid=user.id)
     link(rel="stylesheet" href="/public/css/register.css")
-    script(src="/public/js/signup.js" type="module" defer)
+    script(src="/public/js/edit.js" type="module" defer)
 
 block content
 
@@ -14,17 +15,19 @@ block content
       form(id="signup-form")
         input(type="hidden" name="_csrf" value=csrf)
         div(id="firstNameDiv")
-          input(type="text" name="firstName" class="signUpInput input" placeholder="First Name")
+          input(type="text" name="firstName" class="signUpInput input" value=`${(user.firstName) ? user.firstName : "First name"}`)
         div(id="lastNameDiv")
-          input(type="text" name="lastName" class="signUpInput input" placeholder="Last Name" required)
+          input(type="text" name="lastName" class="signUpInput input" value=`${(user.lastName) ? user.lastName : "Last name"}` required)
         div(id="phoneNumberDiv")
-          input(type="number" name="phone" class="signUpInput input" placeholder="Phone Number" required)
+          input(type="number" name="phone" class="signUpInput input" value=`${(user.phone) ? user.phone : "Phone number"}`)
         div(id="emailAddressDiv")
-          input(type="email" name="email" class="signUpInput input" placeholder="Email Address" required)
+          input(type="email" name="email" class="signUpInput input" value=`${(user.email) ? user.email : "Email address"}` required)
         div(id="password1Div")
           input(type="password" name="password" class="signUpInput input" placeholder="Password" required)
         div(id="password2Div")
           input(type="password" name="password2" class="signUpInput input" placeholder="Confirm Password" required)
         ul#errors-container
         div(id="logInDiv")
-          button(type="submit" class="signUpButton" class="signUpInput") Create Account
+          button(type="submit" class="signUpButton" class="signUpInput") Submit your changes
+      div(id="cancelDiv")
+        button(type="submit" class="cancelButton" class="signUpInput") Cancel

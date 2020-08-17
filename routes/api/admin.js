@@ -7,7 +7,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require('bcryptjs');
 const {secret, expiresIn } = require('../../config').jwtConfig;
 const db = require('../../db/models');
-const {Job, User } = db;
+const {User, Job, Tasker , JobType} = db;
 const { check, validationResult } = require("express-validator");
 const csrfProtection = require("csurf")({cookie: true})
 
@@ -62,53 +62,92 @@ router.put(
   routeHandler(async (req, res, next) => {
     const token = req.cookies.token;
     const user = await User.findByPk(jwt.verify(token, secret).id);
-    if(user.firstName === "Demo" || user.lastName === "User" || user.id === "2" || user.email === "demo@user.io") {
-      res.status(404).json({errors: ["You can not edit the details of the demo user!"]})
-    } else {
-      user.firstName = req.body.firstName;
-      user.lastName = req.body.lastName;
-      user.email = req.body.email;
-      user.phone = req.body.phone;
-      user.hashedPassword = bcrypt.hashSync(req.body.password, 10);
-
-      await user.save();
-      res.cookie("token", req.cookies.token, { maxAge: expiresIn * 1000 });
-      // Is following step really needed?  (PK)
-      res.json({ id: user.id, token });
-    }
-
+    user.firstName = req.body.firstName;
+    user.lastName = req.body.lastName;
+    user.email = req.body.email;
+    user.phone = req.body.phone;
+    user.hashedPassword = bcrypt.hashSync(req.body.password, 10),
+    await user.save();
+    res.cookie("token", req.cookies.token, { maxAge: expiresIn * 1000 });
+    // Is following step really needed?  (PK)
+    res.json({ id: user.id, token });
   })
 );
 
+
 router.delete(
-  "/delete",
+  "/deleteUser",
   csrfProtection,
 // No need for middleware below, because there are no (visible) fields
 //  validateAuthFields,
 //  handleValidationErrors,
   routeHandler(async (req, res, next) => {
-    const token = req.cookies.token;
-    const id = jwt.verify(token, secret).id;
-    const user = await User.findByPk(id);
-    if(user.firstName === "Demo" || user.lastName === "User" || user.id === "2" || user.email === "demo@user.io") {
-      res.status(404).json({errors: ["You can not deactivate the demo user!"]});
-      return;
-    } else {
-       // user's jobs must be found & deleted before user may be deleted
-    const jobs = await Job.findAll({where: {userId: id}});
+    const userId = req.body.userId;
+    console.log("api router thinks that userId = ", userId);
+    const user = await User.findByPk(userId);
+    console.log("api router thinks that user = ", user);
+    // user's jobs must be found & deleted before user may be deleted
+    const jobs = await Job.findAll({where: {userId}});
     jobs.forEach(async job => await job.destroy());
     await user.destroy();
-    res.cookie("token", req.cookies.token, { maxAge: expiresIn * 1000 });
-    // Is following step really needed?  (PK)
-    res.json({ id: user.id, token });
-    }
-
+    res.json({});
   })
 );
 
-// router.post('/token', (req, res, next) => {
+router.delete(
+  "/deleteJob",
+  csrfProtection,
+// No need for middleware below, because there are no (visible) fields
+//  validateAuthFields,
+//  handleValidationErrors,
+  routeHandler(async (req, res, next) => {
+    const jobId = req.body.jobId;
+    const job = await Job.findByPk(jobId);
+    await job.destroy();
+    res.json({});
+  })
+);
 
-// });
+router.delete(
+  "/deleteTasker",
+  csrfProtection,
+// No need for middleware below, because there are no (visible) fields
+//  validateAuthFields,
+//  handleValidationErrors,
+  routeHandler(async (req, res, next) => {
+    const taskerId = req.body.taskerId;
+    const tasker = await Tasker.findByPk(taskerId);
+    // tasker's jobs must be found & deleted before tasker may be deleted
+    const jobs = await Job.findAll({where: {taskerId}});
+    jobs.forEach(async job => await job.destroy());
+    await tasker.destroy();
+    res.json({});
+  })
+);
+
+router.delete(
+  "/deleteJobType",
+  csrfProtection,
+// No need for middleware below, because there are no (visible) fields
+//  validateAuthFields,
+//  handleValidationErrors,
+  routeHandler(async (req, res, next) => {
+    const jobTypeId = req.body.jobTypeId;
+    const jobType = await JobType.findByPk(jobTypeId);
+    console.log(jobType);
+    // jobType's taskers must be found & deleted before jobType may be deleted
+    // taskers' jobs must be found & deleted before tasker may be deleted
+    const taskers = await Tasker.findAll({where: {jobTypeId}});
+    for (const tasker of taskers) {
+      const jobs = await Job.findAll({where: {taskerId: tasker.id}});
+      jobs.forEach(async job => await job.destroy());
+    }
+    taskers.forEach(async tasker => await tasker.destroy());
+    await jobType.destroy();
+    res.json({});
+  })
+);
+
 const loginAuthenticator = [
     check("email", "Must be a valid email address")
         .exists()

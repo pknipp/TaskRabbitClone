@@ -4,7 +4,7 @@ const name = dataDiv.dataset.name;
 
 if (userId !== undefined) {
   let namespan = document.createElement("span")
-  namespan.innerHTML = `Hi ${name}!`
+  namespan.innerHTML = `Hi ${(name) ? name : "there"}!`
   document.getElementById("account").prepend(namespan)
   document.getElementById("accountactions").innerHTML = "Manage account"
   document.getElementById("register").href = `/users/${userId}`
@@ -17,7 +17,6 @@ if (userId !== undefined) {
 const getJobTypes = async () => {
   const res = await fetch('/api/jobtypes/');
   let jobTypes = await res.json();
-  console.log(jobTypes);
   let jobTypesContainer = document.getElementById("jobTypesContainer");
     if(res.ok) {
         jobTypes.forEach(jobType => {
@@ -47,7 +46,6 @@ getJobTypes();
 const form = document.getElementById("jobtype-form");
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    console.log("Yo whaddup");
     const formData = new FormData(form);
     const jobtypeid = formData.get("jobTypeId");
     // const res = await fetch(`/api/jobtypes/${jobtypeid}`, {

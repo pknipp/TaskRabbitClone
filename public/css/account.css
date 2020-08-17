@@ -20,6 +20,10 @@ span {
   padding: 0 20px;
 }
 
+.page-header-logo:hover {
+  cursor: pointer;
+}
+
 #container1 {
   height: 411px;
   width: 100%;
@@ -103,6 +107,24 @@ span {
 
 #left5 {
   grid-area: left5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.picDiv {
+  grid-area: picDiv;
+  display: flex;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background-color: #f9fafb;
+}
+
+.picDiv > img {
+  height: 90%;
+  width: fit-content;
+  max-width: 90%;
+  margin: auto;
 }
 
 #right5 {

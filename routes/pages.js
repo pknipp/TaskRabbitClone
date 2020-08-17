@@ -24,11 +24,22 @@ router.get('/users/login', csrfProtection, (req, res) => {
 
 router.get('/users/signup', csrfProtection, (req, res) => {
   if (req.user) return res.redirect("/home");
-  // From Nick: ^ What is this doing? ^
   res.render("signup", { csrf: req.csrfToken() });
 });
 
+router.get('/users/edit', csrfProtection, (req, res) => {
+  const user = req.user;
+  if (!user) return res.redirect("/home");
+  res.render("edit", { csrf: req.csrfToken(), user});
+});
+//
 
+router.get('/users/delete', csrfProtection, (req, res) => {
+  const user = req.user;
+  if (!user) res.redirect("/login");
+  res.render("delete", {csrf: req.csrfToken()});
+  res.redirect("/home");
+});
 
 router.get('/home', csrfProtection, async (req, res) => {
   const jobTypes = await JobType.findAll();
@@ -39,48 +50,48 @@ router.get('/home', csrfProtection, async (req, res) => {
   };
 });
 
+router.get('/jobtypes/:id(\\d+)', csrfProtection, (req, res) => {
+  if (req.user) {
+    res.render("taskers", { userId: req.user.id, email: req.user.email, name: req.user.firstName, jobTypeId: req.params.id, csrf: req.csrfToken()});
+  } else {
+    res.render("taskers", { jobTypeId: req.params.id })
+  }
+})
+
+router.get('/taskers/:id(\\d+)/delete', csrfProtection, async (req, res) => {
+  res.render("deleteTasker", {csrf: req.csrfToken() });
+})
+
+router.get('/admin', csrfProtection, async (req, res) => {
+  res.render("admin", {csrf: req.csrfToken()});
+})
+
 router.get('/', (req, res) => {
   res.redirect('/home');
 })
 
-router.get('/jobtypes/:id(\\d+)', (req, res) => {
-  res.render("taskers", { jobTypeId: req.params.id })
-});
-
 router.get('/users/:id(\\d+)', async (req, res) => {
-  const user = await User.findByPk(req.params.id);
-//  console.log("Is there a user on the request?", !!req.user);
-  if (req.user) res.render("account", {user, jobsPath: `/jobs/${user.id}`});
-  res.redirect("/login");
-});
+  const user = req.user;
+  const id = Number(req.params.id);
+  if (!user) res.redirect("/login");
+  if (user.id === id) {
+    res.render("account", {user});
+  } else {
+    res.render("unauthorized", {message: "You are not authorized to access this page."});
+  }
+})
 
 router.get('/jobs/:id(\\d+)', (req, res) => {
-//  if (req.user && req.user.id === req.params.id)
-  console.log("pages route thinks that userId = req.params.id = ", req.params.id);
-  res.render("jobs", {userId: req.params.id});
-//  res.redirect("/login");
+  const user = req.user;
+  const id = Number(req.params.id);
+  if (!user) res.redirect("/login");
+  if (user.id === id) {
+    res.render("jobs", {user});
+  } else {
+    res.render("unauthorized", {message: "You are not authorized to access this page."});
+  }
 });
 
-
-// first version of PK's router
-// router.get('/users/:id(\\d+)/jobs', async (req, res) => {
-//   const jobs = await Job.findAll({where: {userId: req.params.id}, include: [User, Tasker]});
-//   const accountPath = `/users/${jobs[0].userId}`
-//   res.render("jobs", {jobs, accountPath});
-// });
-
-// router.get('/home', csrfProtection, (req, res) => {
-//   if (!req.user) return res.redirect("/login");
-//   res.render("home", { username: req.user.username, csrf: req.csrfToken() });
-// });
-
-// router.get('/tweets/:id', (req, res) => {
-//   if (!req.user) return res.redirect("/login");
-//   res.render("tweet-show", { username: req.user.username })
-// });
-
-// router.get('*', (req, res) => res.render('error-page')});
-
-//router.get('/users/:id')
+router.get('/construction', (req, res) => res.render("construction"));
 
 module.exports = router;

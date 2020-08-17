@@ -2,11 +2,20 @@ extends layout
 
 
 block append head
-    div(id="dataDiv", data-jobtype=jobTypeId)
+    div(id="dataDiv", data-jobtype=jobTypeId, data-user=userId, data-name=name, data-csrf=csrf)
     script(src="/public/js/taskers.js" type="module" defer)
     link(rel="stylesheet" href="/public/css/taskers.css")
 
 block content
+    div(class="page-header" id="header")
+      .page-header-logo
+        img(src= "/public/logo.svg" alt='taskdragon' style='width:150px; height:40px;')
+      div(class="page-header-lisulo" id="account")
+        a(href="/users/logout" id="logoutbox")
+          span Log out
+        a(href="/users/register" id="register")
+          button
+            span(id="accountactions") Log in
     h1(id="pageTitle")
     div(class="sort")
         select(id="sort-button")

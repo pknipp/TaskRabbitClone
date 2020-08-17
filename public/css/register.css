@@ -14,6 +14,7 @@
     box-sizing: border-box;
     margin: none;
     padding: none;
+    font-family: "proxima_nova_rgregular, arial, helvetica";
 }
 
 #logInForm, #signup-form {
@@ -55,13 +56,13 @@
     position: relative;
 }
 
-#logo > img {
+#logo > a {
     margin: auto;
     justify-content: center;
     z-index: 2;
 }
 
-#logInDiv, #signUpDiv, #emailDiv, #passwordDiv {
+#logInDiv, #signUpDiv, #emailDiv, #passwordDiv, #cancelDiv {
     width: 100%;
 }
 
@@ -71,10 +72,6 @@
     width: 100%;
     justify-content: flex-start;
     flex-grow: 2;
-}
-
-#logInDiv {
-    /* margin-top: -5%; */
 }
 
 .input {
@@ -94,7 +91,7 @@
     margin: 3% 25%;
     height: 40px;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .signUpInput {
@@ -102,7 +99,7 @@
     margin: 3% 25%;
     height: 40px;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 
@@ -110,6 +107,17 @@
 .signUpButton {
     background-color: #34C419;
     color: white;
+}
+
+.cancelButton {
+    background-color: #FE6465;
+    color: white;
+    margin-top: -1%;
+}
+
+.cancelButton:hover {
+    background-color: #e05555;
+    cursor: pointer;
 }
 
 .logInButton {

@@ -62,11 +62,12 @@
 .main-content-box {
   height: 300px;
   border-radius: 5px;
-  width: 75%;
+  width: 50%;
   background-color: white;
   text-align: center;
   font-family: proxima_nova_rgregular;
   font-size: 30px;
+  padding: 30px;
 }
 
 .main-content-box span {

@@ -10,8 +10,16 @@ const { User, Job, Tasker, JobType } = require("../../db/models");
  }))
 
 router.get("/:id(\\d+)/:sort(\\d+)", routeHandler( async(req, res) => {
-     let options = [["userId"],["jobDate"],[[Tasker, "name"]],[[Tasker,"price"]]];
-    const jobs = await Job.findAll({where: {userId: req.params.id}, include: [User, Tasker], order: options[req.params.sort]});
+
+    const date = new Date();
+    const year = date.getFullYear().toString();
+    const month= date.getMonth().toString() + 1;
+    const day  = date.getDate().toString();
+    const fullDate = `${year}-${month}-${day}`;
+    let options = [["userId"],["jobDate"],[[Tasker, "name"]],[[Tasker,"price"]]];
+    const jobs = await Job.findAll({where: {userId: req.params.id}, include: [User, Tasker],
+        order: options[req.params.sort],
+    });
      // continue trying to refactor code as follows, so that jobType.name can be included on page
     //  const jobs = await Tasker.findAll({include: [User, Job, JobType]});
      res.json(jobs.map(job => job.dataValues));

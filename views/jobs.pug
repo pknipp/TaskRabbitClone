@@ -17,10 +17,14 @@ block content
           button
             span(id="accountactions") Log in
     h1(id="pageTitle")
-    div(class="sort")
-        select(id="sort-button")
+    div(class="buttons")
+        select(id="sort")
             option(name="default" value="0")= "sort by ..."
             option(name="date" value="1")= "Date"
             option(name="tasker" value="2")= "Tasker"
             option(name="price" value="3")= "Price"
+        select(id="filter")
+            option(name="all" value="0")= "Show all jobs"
+            option(name="past" value="1")= "Show past jobs"
+            option(name="future" value="2")= "Show future jobs"
     #jobsContainer

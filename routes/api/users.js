@@ -37,6 +37,7 @@ router.post(
   validateAuthFields,
   handleValidationErrors,
   routeHandler(async (req, res, next) => {
+    // Should we've included password2?
     const { firstName, lastName, email, phone, password } = req.body;
 
     const user = await User.create({

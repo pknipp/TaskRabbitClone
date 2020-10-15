@@ -167,6 +167,7 @@ body {
     background-color: #34C419;
     color: white;
     margin-top: 1%;
+    border: 1px solid black;
 }
 
 .create-job:hover {

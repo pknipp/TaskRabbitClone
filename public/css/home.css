@@ -234,3 +234,15 @@ button:hover {
   background-color: #269712;
   cursor: pointer;
 }
+
+@media screen and (min-width: 900px) {
+  .main-content-box {
+    height: fit-content;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .main-content-box {
+    width: 80%;
+  }
+}

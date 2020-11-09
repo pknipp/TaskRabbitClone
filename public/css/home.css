@@ -250,6 +250,7 @@ button:hover {
   text-align: center;
   margin-top: 80px;
   font-family: proxima_nova_rgregular;
+  border-top: 1px solid lightgray;
 }
 
 .page-footer h1 {
@@ -265,20 +266,21 @@ button:hover {
   list-style-type: none;
   padding: 0px;
   height: 30px;
+  margin: 10px;
 }
 
 .icon:hover {
   color: #37C419;
-  font-size: 38px;
+  font-size: 35px;
 }
 
 .icons p {
-  font-size: 28px;
+  font-size: 25px;
 }
 
 .icon {
   padding: 0px 8px;
-  font-size: 35px;
+  font-size: 32px;
 }
 
 .icons a {

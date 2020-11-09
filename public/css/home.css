@@ -208,15 +208,23 @@ form {
   background-color: lightgray;
 }
 .page-bottom {
-  margin-top: 150px;
+  margin-top: 120px;
   font-family: proxima_nova_rgregular;
 }
 
 .jobtypeform-dropdown {
   display: inline-block;
   padding: 20px;
-
 }
+
+#home-dropdown {
+  /* text-align-last: center; */
+}
+
+#home-dropdown option {
+  text-align: center;
+}
+
 .jobtypeform-footer {
   display: inline-block;
 }
@@ -226,7 +234,7 @@ form {
 }
 
 .page-bottom h2 {
-  margin-left: 160px;
+  margin-left: calc(10% + 20px);
   font-size: 32px;
 }
 

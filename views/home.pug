@@ -44,7 +44,7 @@ block content
             .jobtypeform-innercontainer
               .jobtypeform-dropdown
                 +authInput("", "jobtype")
-                  select(name="jobTypeId" required)
+                  select(id="home-dropdown" name="jobTypeId" required)
                     each jobType in jobTypes
                       option(value=jobType.id)= jobType.name
               .jobtypeform-footer
@@ -58,6 +58,30 @@ block content
       h2 Popular projects in N'rthumbria
       #jobTypesContainer
 
+    .page-footer
+      h1 Contact
+        ul(class="icons")
+          li
+            a(class="fab fa-github icon fa-2x" target="_blank" rel="noopener noreferrer")
+          li
+            a(class="fab fa-angellist icon fa-2x" target="_blank" rel="noopener noreferrer")
+          li
+            a(class="fab fa-linkedin icon fa-2x" target="_blank" rel="noopener noreferrer")
+        ul(class="icons")
+          li
+            a(class="fab fa-github icon fa-2x" target="_blank" rel="noopener noreferrer")
+          li
+            a(class="fab fa-angellist icon fa-2x" target="_blank" rel="noopener noreferrer")
+          li
+            a(class="fab fa-linkedin icon fa-2x" target="_blank" rel="noopener noreferrer")
+        ul(class="icons")
+          li
+            a(class="fab fa-github icon fa-2x" target="_blank" rel="noopener noreferrer")
+          li
+            a(class="fab fa-angellist icon fa-2x" target="_blank" rel="noopener noreferrer")
+          li
+            a(class="fab fa-linkedin icon fa-2x" target="_blank" rel="noopener noreferrer")
+        p &copy; 2020
 
 
   //- figure

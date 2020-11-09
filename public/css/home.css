@@ -248,7 +248,8 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 80px;
+  font-family: proxima_nova_rgregular;
 }
 
 .page-footer h1 {
@@ -266,6 +267,11 @@ button:hover {
   height: 30px;
 }
 
+.icon:hover {
+  color: #37C419;
+  font-size: 38px;
+}
+
 .icons p {
   font-size: 28px;
 }
@@ -278,6 +284,10 @@ button:hover {
 .icons a {
   text-decoration: none;
   color: black;
+}
+
+.copyright {
+  font-size: 20px;
 }
 
 

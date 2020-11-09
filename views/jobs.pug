@@ -18,8 +18,8 @@ block content
             span(id="accountactions") Log in
     h1(id="pageTitle")
     div(class="sort")
-        select(id="sort-button")
-            option(name="default" value="0")= "sort by ..."
+        select(id="sort-button" placeholder="sort by ...")
+            option(name="default" value="0" selected disabled)= "sort by ..."
             option(name="date" value="1")= "Date"
             option(name="tasker" value="2")= "Tasker"
             option(name="price" value="3")= "Price"

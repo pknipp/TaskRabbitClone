@@ -243,6 +243,44 @@ button:hover {
   cursor: pointer;
 }
 
+.page-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.page-footer h1 {
+  font-size: 35px;
+  margin: 20px;
+  text-decoration: underline;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  padding: 0px;
+  height: 30px;
+}
+
+.icons p {
+  font-size: 28px;
+}
+
+.icon {
+  padding: 0px 8px;
+  font-size: 35px;
+}
+
+.icons a {
+  text-decoration: none;
+  color: black;
+}
+
+
 @media screen and (min-width: 900px) {
   .main-content-box {
     height: fit-content;

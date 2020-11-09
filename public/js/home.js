@@ -21,21 +21,24 @@ const getJobTypes = async () => {
     if(res.ok) {
         jobTypes.forEach(jobType => {
             let jobTypeContainer = document.createElement("div");
+            let jobTypeLink = document.createElement("a");
             let jobTypeImg = document.createElement("img");
             jobTypeImg.src = `public/jobtypeimages/${jobType.name}.svg`
             jobTypeContainer.classList.add("jobType");
             let nameDiv = document.createElement("div");
             nameDiv.classList.add("namediv")
-            let nameLink = document.createElement("a");
+            let nameLink = document.createElement("div");
             let subtext = document.createElement("span");
             subtext.innerHTML = "Receiveth thy bidding done!"
             nameLink.innerHTML = `Hire a ${jobType.name}!`;
-            nameLink.href =`/jobtypes/${jobType.id}`
+            jobTypeLink.href =`/jobtypes/${jobType.id}`
+            jobTypeContainer.appendChild(jobTypeLink);
+            jobTypeLink.appendChild(jobTypeImg)
+            jobTypeLink.appendChild(nameDiv);
+            jobTypeLink.appendChild(subtext);
             nameDiv.appendChild(nameLink);
-            jobTypeContainer.appendChild(jobTypeImg)
-            jobTypeContainer.appendChild(nameDiv);
-            jobTypeContainer.appendChild(subtext);
             jobTypesContainer.appendChild(jobTypeContainer);
+
 
         })
     }

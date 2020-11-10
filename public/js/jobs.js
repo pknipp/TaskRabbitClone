@@ -56,7 +56,7 @@ const getJobs = async (userId, sort) => {
       let picDiv = document.createElement("div");
       picDiv.classList.add("picDiv")
       let pic = document.createElement("img");
-      pic.setAttribute("src", `https://yumblr.s3.amazonaws.com/jobTypeIdImages/${job.Tasker.jobTypeId}.svg`)
+      pic.setAttribute("src", `https://yumblr.s3.amazonaws.com/jobtypeIdimages/${job.Tasker.jobTypeId}.svg`)
       pic.setAttribute("height", "90%");
       pic.classList.add("picture")
       picDiv.appendChild(pic)

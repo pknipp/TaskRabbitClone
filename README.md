@@ -1,6 +1,6 @@
 # TaskDragon Wiki
 
-Welcome to the TaskDragon Wiki!
+Welcome to the TaskDragon Wiki!.
 
 This is a full-stack web application built using JavaScript, HTML5, & CSS (frontend) and Express, Sequelize, & PostgreSQL (backend)
 
@@ -60,3 +60,5 @@ This application is currently hosted on Heroku! [YeOldeTaskDragon](https://yeold
 | Get            | /jobTypes/:id     |  Show All taskers for job Type |
 | Get            | /jobTypes/:id/:taskerId |  Show details about tasker  |
 | Post           | /jobs             |  Create new job (user & tasker)  |
+
+Site used for making embeddable images: https://www.labnol.org/embed/google/photos/
